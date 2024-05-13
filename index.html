@@ -136,9 +136,10 @@
             <h2>Escolha sua Área</h2>
             <button id="frontend-btn">Front-End</button>
             <button id="backend-btn">Back-End</button>
+            <button id="circuito-btn">Circuito</button>
+            <button id="bots-btn">Bots</button>
         </div>
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const loginForm = document.getElementById('login-form');
@@ -146,6 +147,8 @@
             const choiceForm = document.querySelector('.choice-form');
             const frontendBtn = document.getElementById('frontend-btn');
             const backendBtn = document.getElementById('backend-btn');
+            const circuitoBtn = document.getElementById('circuito-btn');
+            const botsBtn = document.getElementById('bots-btn');
 
             loginForm.addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -172,6 +175,14 @@
 
             backendBtn.addEventListener('click', function() {
                 window.location.href = 'back-end.html';
+            });
+
+            botsBtn.addEventListener('click', function() {
+                window.location.href = 'bots.html';
+            });
+
+            circuitoBtn.addEventListener('click', function() {
+                window.location.href = 'circuito.html';
             });
         });
     </script>
