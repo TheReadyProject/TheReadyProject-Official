@@ -106,11 +106,11 @@
 <body>
     <div class="login-page">
         <div class="login-form show">
-            <h2>Login</h2>
+            <h2>Entrar</h2>
             <form id="login-form">
                 <div class="form-group">
                     <input type="text" id="username" placeholder="Nome de usuário">
-                    <span class="input-icon">@</span>
+                    <span class="input-icon">&#x1F464;</span>
                 </div>
                 <div class="form-group">
                     <input type="password" id="password" placeholder="Senha">
@@ -122,6 +122,9 @@
         </div>
         <div class="choice-form">
             <h2>Escolha uma Área</h2>
+            <button id="recommended-btn">Cursos Recomendados</button>
+            <button id="our-courses-btn">Nossos Cursos (Grátis + YouTube)</button>
+            <button id="discord-btn">Discord</button>
             <button id="frontend-btn">Frontend</button>
             <button id="backend-btn">Backend</button>
             <button id="circuito-btn">Circuito</button>
@@ -138,6 +141,9 @@
             const loginForm = document.getElementById('login-form');
             const loginError = document.getElementById('login-error');
             const choiceForm = document.querySelector('.choice-form');
+            const recommendedBtn = document.getElementById('recommended-btn');
+            const ourCoursesBtn = document.getElementById('our-courses-btn');
+            const discordBtn = document.getElementById('discord-btn');
             const frontendBtn = document.getElementById('frontend-btn');
             const backendBtn = document.getElementById('backend-btn');
             const circuitoBtn = document.getElementById('circuito-btn');
@@ -159,6 +165,21 @@
                 } else {
                     loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
                 }
+            });
+
+            recommendedBtn.addEventListener('click', function() {
+                // Aqui você pode adicionar lógica para exibir cursos recomendados
+                alert('Cursos Recomendados');
+            });
+
+            ourCoursesBtn.addEventListener('click', function() {
+                // Aqui você pode adicionar lógica para exibir "Nossos Cursos" (Grátis + YouTube)
+                alert('Nossos Cursos (Grátis + YouTube)');
+            });
+
+            discordBtn.addEventListener('click', function() {
+                // Aqui você pode adicionar o link para o Discord
+                alert('Link para o Discord');
             });
 
             frontendBtn.addEventListener('click', function() {
