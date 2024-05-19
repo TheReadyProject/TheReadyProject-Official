@@ -1,0 +1,44 @@
+projeto:
+  nome: TheReadyProject
+  descrição: Um projeto educacional para fornecer recursos e tutoriais sobre diferentes áreas de desenvolvimento de software.
+  autor: AloneUsableUser
+  data_início: 01-01-2023
+  última_atualização: 19-05-2024
+  linguagens:
+    - HTML
+    - CSS
+    - JavaScript
+  tecnologias:
+    - Front-End
+    - Back-End
+    - Desenvolvimento para Android
+    - Desenvolvimento para iOS
+    - Desenvolvimento para TV
+    - Desenvolvimento para PC
+  funcionalidades:
+    - Página de login com validação de credenciais
+    - Escolha de área de desenvolvimento após o login
+    - Páginas dedicadas para diferentes áreas de desenvolvimento (Front-End, Back-End, etc.)
+    - Navegação suave entre as seções de cada página
+    - Barra de progresso para indicar a posição na página
+    - Recursos educacionais, links e tutoriais para cada área de desenvolvimento
+  estrutura_do_projeto:
+    - index.html: Página inicial com formulário de login e escolha de área
+    - front-end.html: Página dedicada ao desenvolvimento Front-End
+    - back-end.html: Página dedicada ao desenvolvimento Back-End
+    - android.html: Página dedicada ao desenvolvimento para Android
+    - ios.html: Página dedicada ao desenvolvimento para iOS
+    - tv.html: Página dedicada ao desenvolvimento para TV
+    - pc.html: Página dedicada ao desenvolvimento para PC
+    - style.css: Estilos comuns a todas as páginas
+    - android.css: Estilos específicos para a página de desenvolvimento Android
+    - ios.css: Estilos específicos para a página de desenvolvimento iOS
+    - tv.css: Estilos específicos para a página de desenvolvimento TV
+    - pc.css: Estilos específicos para a página de desenvolvimento PC
+    - script.js: JavaScript comum a todas as páginas
+    - android.js: JavaScript específico para a página de desenvolvimento Android
+    - ios.js: JavaScript específico para a página de desenvolvimento iOS
+    - tv.js: JavaScript específico para a página de desenvolvimento TV
+    - pc.js: JavaScript específico para a página de desenvolvimento PC
+    - README.md: Documentação do projeto
+    - LICENSE: Licença do projeto
