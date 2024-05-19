@@ -138,6 +138,10 @@
             <button id="backend-btn">Back-End</button>
             <button id="circuito-btn">Circuito</button>
             <button id="bots-btn">Bots</button>
+            <button id="android-btn">Android</button>
+            <button id="ios-btn">iOS</button>
+            <button id="tv-btn">TV</button>
+            <button id="pc-btn">PC</button>
         </div>
     </div>
     <script>
@@ -149,40 +153,55 @@
             const backendBtn = document.getElementById('backend-btn');
             const circuitoBtn = document.getElementById('circuito-btn');
             const botsBtn = document.getElementById('bots-btn');
+            const androidBtn = document.getElementById('android-btn');
+            const iosBtn = document.getElementById('ios-btn');
+            const tvBtn = document.getElementById('tv-btn');
+            const pcBtn = document.getElementById('pc-btn');
 
             loginForm.addEventListener('submit', function(event) {
                 event.preventDefault();
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
 
-                // Simulação de validação de login
-                if (username === 'Aluno' && password === 'Aluno') {
-                    // Login correto, exibir tela de escolha
+                if (username === 'admin' && password === 'admin') {
                     loginError.textContent = '';
-                    loginForm.reset();
                     loginForm.classList.remove('show');
                     choiceForm.classList.add('show');
                 } else {
-                    // Login incorreto, exibir mensagem de erro
-                    loginError.textContent = 'Credenciais inválidas. Tente novamente.';
+                    loginError.textContent = 'Nome de usuário ou senha incorretos';
                 }
             });
 
-            // Adicionar evento de clique para os botões de escolha
             frontendBtn.addEventListener('click', function() {
-                window.location.href = 'front-end.html';
+                window.location.href = 'frontend.html';
             });
 
             backendBtn.addEventListener('click', function() {
-                window.location.href = 'back-end.html';
+                window.location.href = 'backend.html';
+            });
+
+            circuitoBtn.addEventListener('click', function() {
+                window.location.href = 'circuito.html';
             });
 
             botsBtn.addEventListener('click', function() {
                 window.location.href = 'bots.html';
             });
 
-            circuitoBtn.addEventListener('click', function() {
-                window.location.href = 'circuito.html';
+            androidBtn.addEventListener('click', function() {
+                window.location.href = 'android.html';
+            });
+
+            iosBtn.addEventListener('click', function() {
+                window.location.href = 'ios.html';
+            });
+
+            tvBtn.addEventListener('click', function() {
+                window.location.href = 'tv.html';
+            });
+
+            pcBtn.addEventListener('click', function() {
+                window.location.href = 'pc.html';
             });
         });
     </script>
