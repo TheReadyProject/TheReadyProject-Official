@@ -1,0 +1,19 @@
+name: Page Speed Insights
+
+on:
+  push:
+    branches:
+      - main   
+
+jobs:
+  pagespeed:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Page Speed Insights
+        uses: JakePartusch/psi-action@v1.3
+        with:
+          url: https://thereadyproject.github.io/TheReadyProject-Official/
