@@ -5,47 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - TheReadyProject</title>
     <link rel="icon" href="assets/icon.png">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Roboto:300');
-
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
         }
 
         .login-page {
             width: 360px;
-            padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            transition: opacity 0.3s ease;
-            opacity: 1;
+            padding: 20px;
         }
 
-        .login-form,
-        .choice-form {
-            display: none;
-            transition: opacity 0.3s ease;
-            opacity: 0;
-        }
-
-        .login-form.show,
-        .choice-form.show {
-            display: block;
-            opacity: 1;
-        }
-
-        .login-form h2,
-        .choice-form h2 {
+        .login-form h2 {
             margin-top: 0;
         }
 
@@ -94,12 +75,29 @@
             color: #aaa;
         }
 
-        .input-icon {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 10px;
-            color: #aaa;
+        .recommended-courses {
+            display: none;
+        }
+
+        .recommended-courses h2 {
+            margin-top: 0;
+        }
+
+        .recommended-courses button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .recommended-courses button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -110,29 +108,30 @@
             <form id="login-form">
                 <div class="form-group">
                     <input type="text" id="username" placeholder="Nome de usuário">
-                    <span class="input-icon">&#x1F464;</span>
                 </div>
                 <div class="form-group">
                     <input type="password" id="password" placeholder="Senha">
-                    <span class="input-icon">&#x1F512;</span>
                 </div>
                 <button type="submit">Entrar</button>
                 <div id="login-error" class="message"></div>
             </form>
         </div>
-        <div class="choice-form">
+        <div class="choice-form" style="display: none;">
             <h2>Escolha uma Área</h2>
-            <button id="recommended-btn">Cursos Recomendados</button>
-            <button id="our-courses-btn">Nossos Cursos (Grátis + YouTube)</button>
             <button id="discord-btn">Discord</button>
-            <button id="frontend-btn">Frontend</button>
-            <button id="backend-btn">Backend</button>
-            <button id="circuito-btn">Circuito</button>
-            <button id="bots-btn">Bots</button>
-            <button id="android-btn">Android</button>
-            <button id="ios-btn">iOS</button>
-            <button id="tv-btn">TV</button>
-            <button id="pc-btn">PC</button>
+            <button id="our-courses-btn">Nossos Cursos</button>
+            <button id="recommended-btn">Cursos Recomendados</button>
+        </div>
+        <div class="recommended-courses">
+            <h2>Cursos Recomendados</h2>
+            <button class="course-btn" data-link="content/front-end.html">Front End</button>
+            <button class="course-btn" data-link="content/back-end.html">Back End</button>
+            <button class="course-btn" data-link="content/circuito.html">Circuito</button>
+            <button class="course-btn" data-link="content/bots.html">Bots</button>
+            <button class="course-btn" data-link="content/android.html">Android</button>
+            <button class="course-btn" data-link="content/ios.html">iOS</button>
+            <button class="course-btn" data-link="content/tv.html">TV</button>
+            <button class="course-btn" data-link="content/pc.html">PC</button>
         </div>
     </div>
 
@@ -141,17 +140,10 @@
             const loginForm = document.getElementById('login-form');
             const loginError = document.getElementById('login-error');
             const choiceForm = document.querySelector('.choice-form');
+            const recommendedForm = document.querySelector('.recommended-courses');
             const recommendedBtn = document.getElementById('recommended-btn');
             const ourCoursesBtn = document.getElementById('our-courses-btn');
             const discordBtn = document.getElementById('discord-btn');
-            const frontendBtn = document.getElementById('frontend-btn');
-            const backendBtn = document.getElementById('backend-btn');
-            const circuitoBtn = document.getElementById('circuito-btn');
-            const botsBtn = document.getElementById('bots-btn');
-            const androidBtn = document.getElementById('android-btn');
-            const iosBtn = document.getElementById('ios-btn');
-            const tvBtn = document.getElementById('tv-btn');
-            const pcBtn = document.getElementById('pc-btn');
 
             loginForm.addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -161,57 +153,33 @@
                 if (username === 'Aluno' && password === 'Aluno') {
                     loginError.textContent = '';
                     loginForm.classList.remove('show');
-                    choiceForm.classList.add('show');
+                    choiceForm.style.display = 'flex';
                 } else {
                     loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
                 }
             });
 
             recommendedBtn.addEventListener('click', function() {
-                // Aqui você pode adicionar lógica para exibir cursos recomendados
-                alert('Cursos Recomendados');
+                choiceForm.style.display = 'none';
+                recommendedForm.style.display = 'flex';
+            });
+
+            // Redirecionamento para as páginas dos cursos
+            const courseBtns = document.querySelectorAll('.course-btn');
+            courseBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const link = btn.getAttribute('data-link');
+                    window.location.href = link;
+                });
+            });
+
+            // Lógica para os outros botões (Discord, Nossos Cursos)
+            discordBtn.addEventListener('click', function() {
+                alert('Em andamento');
             });
 
             ourCoursesBtn.addEventListener('click', function() {
-                // Aqui você pode adicionar lógica para exibir "Nossos Cursos" (Grátis + YouTube)
-                alert('Nossos Cursos (Grátis + YouTube)');
-            });
-
-            discordBtn.addEventListener('click', function() {
-                // Aqui você pode adicionar o link para o Discord
-                alert('Link para o Discord');
-            });
-
-            frontendBtn.addEventListener('click', function() {
-                window.location.href = 'content/front-end.html';
-            });
-
-            backendBtn.addEventListener('click', function() {
-                window.location.href = 'content/back-end.html';
-            });
-
-            circuitoBtn.addEventListener('click', function() {
-                window.location.href = 'content/circuito.html';
-            });
-
-            botsBtn.addEventListener('click', function() {
-                window.location.href = 'content/bots.html';
-            });
-
-            androidBtn.addEventListener('click', function() {
-                window.location.href = 'content/android.html';
-            });
-
-            iosBtn.addEventListener('click', function() {
-                window.location.href = 'content/ios.html';
-            });
-
-            tvBtn.addEventListener('click', function() {
-                window.location.href = 'content/tv.html';
-            });
-
-            pcBtn.addEventListener('click', function() {
-                window.location.href = 'content/pc.html';
+                alert('Em andamento');
             });
         });
     </script>
