@@ -143,53 +143,57 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const loginForm = document.getElementById('login-form');
-            const loginError = document.getElementById('login-error');
-            const choiceForm = document.querySelector('.choice-form');
-            const recommendedForm = document.querySelector('.recommended-courses');
-            const recommendedBtn = document.getElementById('recommended-btn');
-            const ourCoursesBtn = document.getElementById('our-courses-btn');
-            const discordBtn = document.getElementById('discord-btn');
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('login-form');
+    const loginError = document.getElementById('login-error');
+    const choiceForm = document.querySelector('.choice-form');
+    const recommendedForm = document.querySelector('.recommended-courses');
+    const recommendedBtn = document.getElementById('recommended-btn');
+    const ourCoursesBtn = document.getElementById('our-courses-btn');
+    const discordBtn = document.getElementById('discord-btn');
+    const downloadQuestsBtn = document.getElementById('download-quests-btn'); // Adicionando referência ao botão de download de Quests
 
-            loginForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
 
-                if (username === 'Aluno' && password === 'Aluno') {
-                    loginError.textContent = '';
-                    loginForm.classList.remove('show');
-                    loginForm.style.display = 'none'; // Ocultar formulário de login
-                    choiceForm.style.display = 'flex';
-                } else {
-                    loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
-                }
-            });
+        if (username === 'Aluno' && password === 'Aluno') {
+            loginError.textContent = '';
+            loginForm.classList.remove('show');
+            loginForm.style.display = 'none'; // Ocultar formulário de login
+            choiceForm.style.display = 'flex';
 
-            recommendedBtn.addEventListener('click', function() {
-                choiceForm.style.display = 'none';
-                recommendedForm.style.display = 'flex';
-            });
+            // Exibir opções após o login bem-sucedido
+            choiceForm.appendChild(downloadQuestsBtn); // Mover botão de download de Quests para dentro da .choice-form
+        } else {
+            loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
+        }
+    });
 
-            // Redirecionamento para as páginas dos cursos
-            const courseBtns = document.querySelectorAll('.course-btn');
-            courseBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const link = btn.getAttribute('data-link');
-                    window.location.href = link;
-                });
-            });
+    recommendedBtn.addEventListener('click', function() {
+        choiceForm.style.display = 'none';
+        recommendedForm.style.display = 'flex';
+    });
 
-            // Lógica para os outros botões (Discord, Nossos Cursos)
-            discordBtn.addEventListener('click', function() {
-                alert('Em andamento');
-            });
-
-            ourCoursesBtn.addEventListener('click', function() {
-                alert('Em andamento');
-            });
+    // Redirecionamento para as páginas dos cursos
+    const courseBtns = document.querySelectorAll('.course-btn');
+    courseBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const link = btn.getAttribute('data-link');
+            window.location.href = link;
         });
+    });
+
+    // Lógica para os outros botões (Discord, Nossos Cursos)
+    discordBtn.addEventListener('click', function() {
+        alert('Em andamento');
+    });
+
+    ourCoursesBtn.addEventListener('click', function() {
+        alert('Em andamento');
+    });
+});
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzXQNB1RmLgmFf7zF6xq4G4pmkO1lFk8Kpdn8Ls4ql+g" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-ho+pPqkLdRBOBJTAY6lV+h/Wq6pUbOe1OcfXK9Acp5RklZZa6I1RtQg8GtNHFr38" crossorigin="anonymous"></script>
