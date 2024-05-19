@@ -157,7 +157,7 @@
                     loginForm.classList.remove('show');
                     choiceForm.classList.add('show');
                 } else {
-                    loginError.textContent = 'Nome de usuário ou senha incorretos';
+                    loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
                 }
             });
 
