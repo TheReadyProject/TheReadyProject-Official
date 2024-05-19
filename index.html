@@ -119,19 +119,6 @@
 </head>
 <body>
     <div class="login-page">
-        <div class="login-form show">
-            <h2>Entrar</h2>
-            <form id="login-form">
-                <div class="form-group">
-                    <input type="text" id="username" placeholder="Nome de usuário" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="password" id="password" placeholder="Senha" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Entrar</button>
-                <div id="login-error" class="message"></div>
-            </form>
-        </div>
         <div class="choice-form">
             <h2>Escolha uma Área</h2>
             <button id="discord-btn" class="btn btn-secondary">Discord</button>
@@ -155,31 +142,11 @@
 
     <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const loginForm = document.getElementById('login-form');
-    const loginError = document.getElementById('login-error');
     const choiceForm = document.querySelector('.choice-form');
     const recommendedForm = document.querySelector('.recommended-courses');
     const recommendedBtn = document.getElementById('recommended-btn');
-    const ourCoursesBtn = document.getElementById('our-courses-btn');
     const discordBtn = document.getElementById('discord-btn');
-    const downloadQuestsBtn = document.querySelector('.choice-form a'); // Selecionando o botão de download de Quests
-
-    loginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        if (username === 'Aluno' && password === 'Aluno') {
-            loginError.textContent = '';
-            loginForm.classList.remove('show');
-            loginForm.style.display = 'none'; // Ocultar formulário de login
-            choiceForm.style.display = 'flex';
-            recommendedForm.style.display = 'flex'; // Exibir recomendações após o login bem-sucedido
-            choiceForm.appendChild(downloadQuestsBtn); // Adicionando botão de download de Quests à escolha após o login bem-sucedido
-        } else {
-            loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
-        }
-    });
+    const ourCoursesBtn = document.getElementById('our-courses-btn');
 
     recommendedBtn.addEventListener('click', function() {
         choiceForm.style.display = 'none';
@@ -209,4 +176,3 @@ document.addEventListener('DOMContentLoaded', function() {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-ho+pPqkLdRBOBJTAY6lV+h/Wq6pUbOe1OcfXK9Acp5RklZZa6I1RtQg8GtNHFr38" crossorigin="anonymous"></script>
 </body>
 </html>
-
