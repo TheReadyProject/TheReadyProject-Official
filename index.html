@@ -66,40 +66,20 @@
             width: 100%;
         }
 
-        .choice-form {
+        .choice-form,
+        .recommended-courses {
+            display: none;
+        }
+
+        .courses-container {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .choice-form button {
+        .courses-container button {
             margin-bottom: 10px;
             width: 100%;
-        }
-
-        .recommended-courses {
-            display: none;
-        }
-
-        .recommended-courses h2 {
-            margin-top: 0;
-        }
-
-        .recommended-courses button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        .recommended-courses button:hover {
-            background-color: #0056b3;
         }
     </style>
 </head>
@@ -126,14 +106,16 @@
         </div>
         <div class="recommended-courses">
             <h2>Cursos Recomendados</h2>
-            <button class="course-btn" data-link="content/front-end.html">Front End</button>
-            <button class="course-btn" data-link="content/back-end.html">Back End</button>
-            <button class="course-btn" data-link="content/circuito.html">Circuito</button>
-            <button class="course-btn" data-link="content/bots.html">Bots</button>
-            <button class="course-btn" data-link="content/android.html">Android</button>
-            <button class="course-btn" data-link="content/ios.html">iOS</button>
-            <button class="course-btn" data-link="content/tv.html">TV</button>
-            <button class="course-btn" data-link="content/pc.html">PC</button>
+            <div class="courses-container">
+                <button class="course-btn" data-link="content/front-end.html">Front End</button>
+                <button class="course-btn" data-link="content/back-end.html">Back End</button>
+                <button class="course-btn" data-link="content/circuito.html">Circuito</button>
+                <button class="course-btn" data-link="content/bots.html">Bots</button>
+                <button class="course-btn" data-link="content/android.html">Android</button>
+                <button class="course-btn" data-link="content/ios.html">iOS</button>
+                <button class="course-btn" data-link="content/tv.html">TV</button>
+                <button class="course-btn" data-link="content/pc.html">PC</button>
+            </div>
         </div>
     </div>
 
@@ -149,7 +131,7 @@
 
             loginForm.addEventListener('submit', function(event) {
                 event.preventDefault();
-                const username = document.getElementById('username').value;
+                const username= document.getElementById('username').value;
                 const password = document.getElementById('password').value;
 
                 if (username === 'Aluno' && password === 'Aluno') {
