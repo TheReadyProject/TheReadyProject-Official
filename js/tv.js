@@ -23,4 +23,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const progress = (scrollDistance / (fullHeight - windowHeight)) * 100;
         progressBar.style.width = progress + '%';
-   
+    });
+});
