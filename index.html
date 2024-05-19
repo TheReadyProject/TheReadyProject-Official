@@ -100,11 +100,6 @@
             right: 10px;
             color: #aaa;
         }
-
-        .input-icon svg {
-            width: 20px;
-            height: 20px;
-        }
     </style>
 </head>
 <body>
@@ -113,29 +108,21 @@
             <h2>Login</h2>
             <form id="login-form">
                 <div class="form-group">
-                    <input type="text" id="username" placeholder="Nome de Usuário" required>
-                    <div class="input-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 4C16.41 4 20 7.59 20 12C20 14.05 19.09 15.91 17.71 17.29L17.71 17.3L16.29 15.88L16.29 15.87C16.48 15.57 16.58 15.22 16.58 14.86C16.58 13.18 14.98 11.89 13 11.89C11.02 11.89 9.42 13.18 9.42 14.86C9.42 15.22 9.52 15.57 9.71 15.87L9.71 15.88L8.29 17.3L8.29 17.29C6.91 15.91 6 14.05 6 12C6 7.59 9.59 4 12 4ZM13 19.75C13 19.75 7 20.75 5 16.5C5 14.69 7 10 12 10C17 10 19 14.69 19 16.5C17 20.75 11 19.75 11 19.75H13Z" fill="currentColor"/>
-                        </svg>
-                    </div>
+                    <input type="text" id="username" placeholder="Nome de usuário">
+                    <span class="input-icon">@</span>
                 </div>
                 <div class="form-group">
-                    <input type="password" id="password" placeholder="Senha" required>
-                    <div class="input-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M17 10.5C17 12.43 15.43 14 13.5 14C11.57 14 10 12.43 10 10.5C10 8.57 11.57 7 13.5 7C15.43 7 17 8.57 17 10.5ZM16 18C16 18.55 15.55 19 15 19H9C8.45 19 8 18.55 8 18V17H7C5.34 17 4 15.66 4 14V8C4 6.34 5.34 5 7 5H17C18.66 5 20 6.34 20 8V14C20 15.66 18.66 17 17 17H16V18ZM15.54 16H8.46C8.21 16 8 15.79 8 15.54V14.5C8 14.22 8.22 14 8.5 14H15.5C15.78 14 16 14.22 16 14.5V15.54C16 15.79 15.79 16 15.54 16ZM14.5 9.25C14.5 9.34 14.45 9.41 14.38 9.46C14.31 9.5 14.24 9.5 14.17 9.5C14.11 9.5 14.06 9.47 14 9.42C13.95 9.35 13.95 9.31 14 9.25C14.05 9.16 14.1 9.09 14.17 9.04C14.24 9 14.31 9 14.38 9.04C14.45 9.09 14.5 9.16 14.5 9.25Z" fill="currentColor"/>
-                        </svg>
-                    </div>
+                    <input type="password" id="password" placeholder="Senha">
+                    <span class="input-icon">&#x1F512;</span>
                 </div>
                 <button type="submit">Entrar</button>
+                <div id="login-error" class="message"></div>
             </form>
-            <div class="message" id="login-error"></div>
         </div>
         <div class="choice-form">
-            <h2>Escolha sua Área</h2>
-            <button id="frontend-btn">Front-End</button>
-            <button id="backend-btn">Back-End</button>
+            <h2>Escolha uma Área</h2>
+            <button id="frontend-btn">Frontend</button>
+            <button id="backend-btn">Backend</button>
             <button id="circuito-btn">Circuito</button>
             <button id="bots-btn">Bots</button>
             <button id="android-btn">Android</button>
@@ -144,6 +131,7 @@
             <button id="pc-btn">PC</button>
         </div>
     </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const loginForm = document.getElementById('login-form');
@@ -173,11 +161,11 @@
             });
 
             frontendBtn.addEventListener('click', function() {
-                window.location.href = 'frontend.html';
+                window.location.href = 'front-end.html';
             });
 
             backendBtn.addEventListener('click', function() {
-                window.location.href = 'backend.html';
+                window.location.href = 'back-end.html';
             });
 
             circuitoBtn.addEventListener('click', function() {
