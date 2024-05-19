@@ -68,14 +68,25 @@
         }
 
         .choice-form {
-            display: flex;
+            display: none; /* Inicialmente oculta */
             flex-direction: column;
             align-items: center;
         }
 
         .choice-form button {
             margin-bottom: 10px;
-            width: 100%;
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .choice-form button:hover {
+            background-color: #0056b3;
         }
 
         .recommended-courses {
@@ -90,7 +101,7 @@
 
         .recommended-courses button {
             display: block;
-            width: 100%;
+            width: calc(100% - 22px);
             padding: 10px;
             margin-bottom: 10px;
             border: none;
@@ -151,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const recommendedBtn = document.getElementById('recommended-btn');
     const ourCoursesBtn = document.getElementById('our-courses-btn');
     const discordBtn = document.getElementById('discord-btn');
-    const downloadQuestsBtn = document.getElementById('download-quests-btn'); // Adicionando referência ao botão de download de Quests
+    const downloadQuestsBtn = document.querySelector('.choice-form a'); // Selecionando o botão de download de Quests
 
     loginForm.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -163,9 +174,8 @@ document.addEventListener('DOMContentLoaded', function() {
             loginForm.classList.remove('show');
             loginForm.style.display = 'none'; // Ocultar formulário de login
             choiceForm.style.display = 'flex';
-
-            // Exibir opções após o login bem-sucedido
-            choiceForm.appendChild(downloadQuestsBtn); // Mover botão de download de Quests para dentro da .choice-form
+            recommendedForm.style.display = 'flex'; // Exibir recomendações após o login bem-sucedido
+            choiceForm.appendChild(downloadQuestsBtn); // Adicionando botão de download de Quests à escolha após o login bem-sucedido
         } else {
             loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
         }
@@ -199,3 +209,4 @@ document.addEventListener('DOMContentLoaded', function() {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-ho+pPqkLdRBOBJTAY6lV+h/Wq6pUbOe1OcfXK9Acp5RklZZa6I1RtQg8GtNHFr38" crossorigin="anonymous"></script>
 </body>
 </html>
+
