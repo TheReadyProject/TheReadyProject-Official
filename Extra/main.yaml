@@ -37,5 +37,5 @@ projeto:
     - ios.js: JavaScript específico para a página de desenvolvimento iOS
     - tv.js: JavaScript específico para a página de desenvolvimento TV
     - pc.js: JavaScript específico para a página de desenvolvimento PC
-    - README.md: Documentação do projeto
-    - LICENSE: Licença do projeto
+    - README.md: Descrição do projeto
+    - LICENSE: MIT
