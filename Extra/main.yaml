@@ -2,7 +2,6 @@ projeto:
   nome: TheReadyProject
   descrição: Um projeto educacional para fornecer recursos e tutoriais sobre diferentes áreas de desenvolvimento de software.
   autor: AloneUsableUser
-  última_atualização: 19-05-2024
   linguagens:
     - HTML
     - CSS
