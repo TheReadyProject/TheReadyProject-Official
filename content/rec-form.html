@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/icon.png" />
+    <link rel="stylesheet" href="../css/rec-form.css" />
+    <title>TheReadyProject</title>
+  </head>
+  <body>
+    <div class="recommended-form">
+      <div class="recommended-courses">
+        <h2>Cursos Recomendados</h2>
+        <button class="course-btn btn btn-primary"data-link="content/front-end.html">Front End</button>
+        <button class="course-btn btn btn-primary"data-link="content/back-end.html">Back End</button>
+        <button class="course-btn btn btn-primary" data-link="content/circuito.html">Circuito</button>
+        <button class="course-btn btn btn-primary" data-link="content/bots.html">Bots</button>
+        <button class="course-btn btn btn-primary" data-link="content/android.html">Android</button>
+        <button class="course-btn btn btn-primary" data-link="content/ios.html">iOS</button>
+        <button class="course-btn btn btn-primary" data-link="content/tv.html">TV</button>
+        <button class="course-btn btn btn-primary" data-link="content/pc.html">PC</button>
+      </div>
+    </div>
+    <script>
+      // Redirecionamento para as páginas dos cursos
+      const courseBtns = document.querySelectorAll(".course-btn")
+      courseBtns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const link = btn.getAttribute("data-link")
+          window.location.href = link
+        })
+      })
+    </script>
+  </body>
+</html>

@@ -65,58 +65,10 @@
             width: 100%;
         }
 
-        .choice-form {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .choice-form button {
-            margin-bottom: 10px;
-            width: calc(100% - 22px);
-            padding: 10px;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        .choice-form button:hover {
-            background-color: #0056b3;
-        }
-
-        .choice-form h2,
         .login-form h2 {
             padding: 10px;
         }
 
-        .recommended-courses {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .recommended-courses h2 {
-            margin-top: 0;
-        }
-
-        .recommended-courses button {
-            display: block;
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-bottom: 10px;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        .recommended-courses button:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 <body>
@@ -134,18 +86,7 @@
                 <div id="login-error" class="message"></div>
             </form>
         </div>
-        </div>
-        <div class="recommended-courses">
-            <h2>Cursos Recomendados</h2>
-            <button class="course-btn btn btn-primary" data-link="content/front-end.html">Front End</button>
-            <button class="course-btn btn btn-primary" data-link="content/back-end.html">Back End</button>
-            <button class="course-btn btn btn-primary" data-link="content/circuito.html">Circuito</button>
-            <button class="course-btn btn btn-primary" data-link="content/bots.html">Bots</button>
-            <button class="course-btn btn btn-primary" data-link="content/android.html">Android</button>
-            <button class="course-btn btn btn-primary" data-link="content/ios.html">iOS</button>
-            <button class="course-btn btn btn-primary" data-link="content/tv.html">TV</button>
-            <button class="course-btn btn btn-primary" data-link="content/pc.html">PC</button>
-        </div>
+      </div>
     </div>
 
     <script>
@@ -154,13 +95,7 @@
             const loginError = document.getElementById('login-error');
             const loginTitle = document.getElementById('login-title')
             const loginBtn = document.getElementById('login-btn')
-            const choiceForm = document.querySelector('.choice-form');
-            const recommendedForm = document.querySelector('.recommended-courses');
-            const recommendedBtn = document.getElementById('recommended-btn');
-            const ourCoursesBtn = document.getElementById('our-courses-btn');
-            const discordBtn = document.getElementById('discord-btn')
-            const downloadQuestsBtn = document.getElementById('download-quests-btn');
-
+          
             loginForm.addEventListener('submit', function(event) {
                 event.preventDefault();
                 const username = document.getElementById('username').value;
@@ -172,34 +107,9 @@
                     const link = loginBtn.getAttribute('data-link');
                     window.location.href = link;
                     loginForm.style.display = 'none';
-                    choiceForm.style.display = 'flex';
-                    choiceForm.appendChild(downloadQuestsBtn);
-
                 } else {
                     loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
                 }
-            });
-
-            recommendedBtn.addEventListener('click', function() {
-                choiceForm.style.display = 'none';
-                recommendedForm.style.display = 'flex';
-            });
-            // Redirecionamento para as páginas dos cursos
-            const courseBtns = document.querySelectorAll('.course-btn');
-            courseBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const link = btn.getAttribute('data-link');
-                    window.location.href = link;
-                });
-            });
-
-            // Lógica para os outros botões (Discord, Nossos Cursos)
-            discordBtn.addEventListener('click', function() {
-                alert('Em andamento');
-            });
-
-            ourCoursesBtn.addEventListener('click', function() {
-                alert('Em andamento');
             });
         });
     </script>

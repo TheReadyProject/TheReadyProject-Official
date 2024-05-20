@@ -3,16 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/icon.png" />
     <link rel="stylesheet" href="../css/choice-form.css" />
     <title>TheReadyProject</title>
   </head>
   <body>
-    <div class="login-page">
+    <div class="choice-form">
       <h2>Escolha uma Área</h2>
       <button id="discord-btn" class="btn btn-secondary">Discord</button>
       <button id="our-courses-btn" class="btn btn-secondary">Nossos Cursos</button>
       <button id="recommended-btn" class="btn btn-secondary">Cursos Recomendados</button>
       <button id="download-quests-btn" class="btn btn-secondary">Baixar Quests.py</button>
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const discordBtn = document.getElementById('discord-btn')
+        const ourCoursesBtn = document.getElementById('our-courses-btn');
+        const recommendedBtn = document.getElementById('recommended-btn');
+        const downloadQuestsBtn = document.getElementById('download-quests-btn');
+
+        // Lógica para os outros botões (Discord, Nossos Cursos)
+        discordBtn.addEventListener('click', function() {
+            alert('Em andamento');
+        });
+        ourCoursesBtn.addEventListener('click', function() {
+            alert('Em andamento');
+        });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
   </body>
 </html>

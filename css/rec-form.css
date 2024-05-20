@@ -9,7 +9,7 @@ body {
   height: 100vh;
  }
 
- .choice-form {
+ .recommended-form {
   width: 360px;
   background-color: #fff;
   border-radius: 8px;
@@ -18,7 +18,7 @@ body {
   padding: 20px;
 }
 
-.choice-form button{
+.recommended-courses button {
   width: calc(100% - 22px);
   padding: 10px;
   margin-bottom: 10px;
@@ -30,6 +30,6 @@ body {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.recommended-courses button:hover {
   background-color: #0056b3;
 }
