@@ -120,10 +120,10 @@
 
                 if (username === 'Aluno' && password === 'Aluno') {
                     loginError.textContent = '';
-                    loginForm.classList.remove('show');
+                    // loginForm.classList.remove('show');
                     const link = loginBtn.getAttribute('data-link');
                     window.location.href = link;
-                    loginForm.style.display = 'none';
+                    // loginForm.style.display = 'none';
                 } else {
                     loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
                 }
