@@ -15,13 +15,16 @@
       <button id="recommended-btn" class="btn btn-secondary">Cursos Recomendados</button>
       <button id="download-quests-btn" class="btn btn-secondary">Baixar Quests.py</button>
     </div>
+    
+    <div id="recommended-courses-container" class="recommended-courses-container"></div>
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        const discordBtn = document.getElementById('discord-btn')
+        const discordBtn = document.getElementById('discord-btn');
         const ourCoursesBtn = document.getElementById('our-courses-btn');
         const recommendedBtn = document.getElementById('recommended-btn');
         const downloadQuestsBtn = document.getElementById('download-quests-btn');
+        const recommendedCoursesContainer = document.getElementById('recommended-courses-container');
 
         // Lógica para os outros botões (Discord, Nossos Cursos)
         discordBtn.addEventListener('click', function() {
@@ -29,6 +32,28 @@
         });
         ourCoursesBtn.addEventListener('click', function() {
             alert('Em andamento');
+        });
+
+        recommendedBtn.addEventListener('click', function() {
+          recommendedCoursesContainer.innerHTML = `
+            <button class="course-btn btn btn-primary" data-link="content/front-end.html">Front End</button>
+            <button class="course-btn btn btn-primary" data-link="content/back-end.html">Back End</button>
+            <button class="course-btn btn btn-primary" data-link="content/circuito.html">Circuito</button>
+            <button class="course-btn btn btn-primary" data-link="content/bots.html">Bots</button>
+            <button class="course-btn btn btn-primary" data-link="content/android.html">Android</button>
+            <button class="course-btn btn btn-primary" data-link="content/ios.html">iOS</button>
+            <button class="course-btn btn btn-primary" data-link="content/tv.html">TV</button>
+            <button class="course-btn btn btn-primary" data-link="content/pc.html">PC</button>
+          `;
+        });
+
+        downloadQuestsBtn.addEventListener('click', function() {
+          const link = document.createElement('a');
+          link.href = '../Questions/Quests.py';
+          link.download = 'Quests.py';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
         });
       });
     </script>
