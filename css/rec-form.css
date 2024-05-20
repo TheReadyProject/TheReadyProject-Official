@@ -2,16 +2,16 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+  background-color: #212A3E;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
- }
+}
 
- .recommended-form {
+.recommended-form {
   width: 360px;
-  background-color: #fff;
+  background-color: #F1F6F9;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -23,7 +23,7 @@ body {
   padding: 10px;
   margin-bottom: 10px;
   border: none;
-  background-color: #007bff;
+  background-color: #394867;
   color: #fff;
   cursor: pointer;
   border-radius: 4px;
@@ -31,5 +31,5 @@ body {
 }
 
 .recommended-courses button:hover {
-  background-color: #0056b3;
+  background-color: #273248;
 }
