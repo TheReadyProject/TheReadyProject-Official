@@ -114,13 +114,26 @@
 </head>
 <body>
     <div class="login-page">
+        <div class="login-form show">
+            <h2>Entrar</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="Nome de usuário" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Senha" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+                <div id="login-error" class="message"></div>
+            </form>
+        </div>
         <div class="choice-form">
             <h2>Escolha uma Área</h2>
             <button id="discord-btn" class="btn btn-secondary">Discord</button>
             <button id="our-courses-btn" class="btn btn-secondary">Nossos Cursos</button>
             <button id="recommended-btn" class="btn btn-secondary">Cursos Recomendados</button>
             <!-- Adicionando botão para baixar Quests.py -->
-            <a href="Questions/Quests.py" download class="btn btn-secondary">Baixar Quests.py</a>
+            <button id="download-quests-btn" class="btn btn-secondary">Baixar Quests.py</button>
         </div>
         <div class="recommended-courses">
             <h2>Cursos Recomendados</h2>
@@ -137,17 +150,35 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('login-form');
+            const loginError = document.getElementById('login-error');
             const choiceForm = document.querySelector('.choice-form');
             const recommendedForm = document.querySelector('.recommended-courses');
             const recommendedBtn = document.getElementById('recommended-btn');
-            const discordBtn = document.getElementById('discord-btn');
             const ourCoursesBtn = document.getElementById('our-courses-btn');
+            const discordBtn = document.getElementById('discord-btn');
+            const downloadQuestsBtn = document.getElementById('download-quests-btn');
+
+            loginForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                if (username === 'Aluno' && password === 'Aluno') {
+                    loginError.textContent = '';
+                    loginForm.classList.remove('show');
+                    loginForm.style.display = 'none';
+                    choiceForm.style.display = 'flex';
+                    choiceForm.appendChild(downloadQuestsBtn);
+                } else {
+                    loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
+                }
+            });
 
             recommendedBtn.addEventListener('click', function() {
                 choiceForm.style.display = 'none';
                 recommendedForm.style.display = 'flex';
             });
-
             // Redirecionamento para as páginas dos cursos
             const courseBtns = document.querySelectorAll('.course-btn');
             courseBtns.forEach(btn => {
