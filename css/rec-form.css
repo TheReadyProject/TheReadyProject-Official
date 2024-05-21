@@ -9,7 +9,7 @@ body {
   height: 100vh;
 }
 
- .recommended-form {
+.recommended-form {
   width: 360px;
   background-color: #F1F6F9;
   border-radius: 8px;
@@ -32,4 +32,8 @@ body {
 
 .recommended-courses button:hover {
   background-color: #273248;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ac94b77675910ec1c0cc26db2872169362b80a63
