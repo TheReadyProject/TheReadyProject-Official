@@ -79,10 +79,13 @@
 
         .message {
             color: #D32F2F;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
+            position: relative;
+            margin-top: 10px;
+            font-size: 14px;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid #D32F2F;
+            border-radius: 4px;
+            padding: 5px;
         }
 
         .login-form h2 {
@@ -102,6 +105,13 @@
             top: 0;
             left: 0;
             z-index: 2;
+            transition: height 0.3s;
+            overflow: hidden;
+            height: 60px; /* Altura original */
+        }
+
+        .header.expanded {
+            height: 200px; /* Altura expandida */
         }
 
         .header .github-link img {
@@ -124,8 +134,15 @@
             padding: 10px;
             border-radius: 5px;
             position: absolute;
-            top: 50px;
+            top: 60px; /* Ajuste de posição */
             right: 10px;
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
+
+        .header.expanded .settings {
+            display: flex;
+            opacity: 1;
         }
 
         .settings input[type="range"] {
@@ -152,7 +169,7 @@
 <body>
     <div class="header">
         <div class="settings-toggle">
-            <img src="assets/settings.png" alt="Settings">
+            <img src="assets/settings_icon.png" alt="Settings">
         </div>
         <div class="settings">
             <label for="brightness">Brilho</label>
@@ -212,6 +229,7 @@
             const fontSizeControl = document.getElementById('font-size');
             const settingsToggle = document.querySelector('.settings-toggle img');
             const settingsMenu = document.querySelector('.settings');
+            const header = document.querySelector('.header');
             const body = document.body;
 
             loginForm.addEventListener('submit', function(event) {
@@ -226,12 +244,13 @@
                     window.location.href = link;
                 } else {
                     loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
+                    loginError.style.visibility = 'visible'; // Torna a mensagem de erro visível
                 }
             });
 
-            const links = document.getElementsByTagName('a');
-            for (let i = 0; i < links.length; i++) {
-                const href = links[i].getAttribute('href');
+            var links = document.getElementsByTagName('a');
+            for (var i = 0; i < links.length; i++) {
+                var href = links[i].getAttribute('href');
                 if (href && href.endsWith('.html')) {
                     links[i].setAttribute('href', href.slice(0, -5));
                 }
@@ -277,7 +296,11 @@
 
             // Alternar menu de configurações
             settingsToggle.addEventListener('click', function() {
-                settingsMenu.style.display = settingsMenu.style.display === 'flex' ? 'none' : 'flex';
+                if (header.classList.contains('expanded')) {
+                    header.classList.remove('expanded');
+                } else {
+                    header.classList.add('expanded');
+                }
             });
 
             function setCookie(name, value, days) {
