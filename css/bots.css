@@ -2,14 +2,14 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #212A3E;
+    background-color: #0c3540;
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    color: #F1F6F9;
+    color: #f5f5f5;
 }
 
 .title {
@@ -44,11 +44,11 @@ body {
 
 .topic ul li a {
     text-decoration: none;
-    color: #4A90E2;
+    color: #4E98B6;
 }
 
 .topic ul li a:hover {
-    color: #75A9E6;
+    color: #6CA9C5;
     text-decoration: underline;
 }
 
@@ -58,11 +58,11 @@ body {
     left: 0;
     width: 100%;
     height: 5px;
-    background-color: #F1F6F9;;
+    background-color: #F5f5f5;
 }
 
 .progress-bar {
     height: 100%;
-    background-color: #4A90E2;
+    background-color: #4E98B6;
     width: 0%;
 }
