@@ -19,6 +19,7 @@
             align-items: center;
             min-height: 100vh;
             position: relative;
+            transition: filter 0.3s, background-color 0.3s, color 0.3s;
         }
 
         .login-page {
@@ -28,6 +29,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             padding: 20px;
+            z-index: 1;
         }
 
         .form-group {
@@ -101,37 +103,70 @@
             position: absolute;
             top: 0;
             left: 0;
+            z-index: 2;
         }
 
         .header .github-link img {
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .header .github-link img:hover {
+            transform: scale(1.1);
         }
 
         .settings {
-            display: flex;
-            align-items: center;
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
             gap: 10px;
-            color: white;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            position: absolute;
+            top: 50px;
+            right: 10px;
         }
 
         .settings input[type="range"] {
             width: 100px;
         }
 
+        .settings-toggle img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .settings-toggle img:hover {
+            transform: scale(1.1);
+        }
+
         .hidden {
             display: none;
+        }
+
+        .dark-mode {
+            background-color: #212A3E;
+            color: #F1F6F9;
         }
     </style>
 </head>
 <body>
     <div class="header">
+        <div class="settings-toggle">
+            <img src="assets/settings.png" alt="Settings">
+        </div>
         <div class="settings">
             <label for="brightness">Brilho</label>
             <input type="range" id="brightness" name="brightness" min="0.5" max="2" step="0.1" value="1">
-            <label for="music">Música</label>
-            <input type="checkbox" id="music" name="music" checked>
+            <label for="dark-mode">Modo Escuro</label>
+            <input type="checkbox" id="dark-mode" name="dark-mode">
+            <label for="font-size">Tamanho da Fonte</label>
+            <input type="range" id="font-size" name="font-size" min="12" max="24" step="1" value="16">
         </div>
         <div class="github-link">
             <a href="https://github.com/TheReadyProject/TheReadyProject-Official" target="_blank">
@@ -139,10 +174,6 @@
             </a>
         </div>
     </div>
-    <audio id="background-music" autoplay loop>
-        <source src="assets/music/Forest.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
     <div class="login-page">
         <div class="login-form show">
             <h2 id="login-title">Entrar</h2>
@@ -184,8 +215,11 @@
             const loginError = document.getElementById('login-error');
             const loginBtn = document.getElementById('login-btn');
             const brightnessControl = document.getElementById('brightness');
-            const musicControl = document.getElementById('music');
-            const backgroundMusic = document.getElementById('background-music');
+            const darkModeControl = document.getElementById('dark-mode');
+            const fontSizeControl = document.getElementById('font-size');
+            const settingsToggle = document.querySelector('.settings-toggle img');
+            const settingsMenu = document.querySelector('.settings');
+            const body = document.body;
 
             loginForm.addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -204,7 +238,7 @@
 
             var links = document.getElementsByTagName('a');
             for (var i = 0; i < links.length; i++) {
-                var href = links[i].getAttribute('href');
+                var href = links[i].var href = links[i].getAttribute('href');
                 if (href && href.endsWith('.html')) {
                     links[i].setAttribute('href', href.slice(0, -5));
                 }
@@ -213,68 +247,48 @@
             const cookieModal = new bootstrap.Modal(document.getElementById('cookieModal'));
             const acceptCookiesBtn = document.getElementById('accept-cookies');
 
-            if (!getCookie('cookies_accepted')) {
-                cookieModal.show();
-            }
+            // Mostrar modal de cookies ao carregar a página
+            cookieModal.show();
 
             acceptCookiesBtn.addEventListener('click', function() {
-                setCookie('cookies_accepted', 'true', 30);
                 cookieModal.hide();
+                setCookie('cookiesAccepted', 'true', 30);
             });
-
-            function setCookie(name, value, days) {
-                const d = new Date();
-                d.setTime(d.getTime() + (days*24*60*60*1000));
-                const expires = "expires=" + d.toUTCString();
-                document.cookie = `${name}=${value};${expires};path=/;SameSite=Lax`;
-            }
-
-            function getCookie(name) {
-                const nameEQ = `${name}=`;
-                const ca = document.cookie.split(';');
-                for(let i = 0; i < ca.length; i++) {
-                    let c = ca[i].trim();
-                    if (c.indexOf(nameEQ) === 0) {
-                        return c.substring(nameEQ.length, c.length);
-                    }
-                }
-                return null;
-            }
-
-            function deleteCookie(name) {
-                document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;SameSite=Lax`;
-            }
-
-            function listCookies() {
-                const cookies = document.cookie.split(';');
-                return cookies.map(cookie => cookie.trim());
-            }
-
-            // Exemplo de uso de funções adicionais
-            console.log("Todos os cookies:", listCookies());
-
-            // Lembre-se do login, se o cookie estiver definido
-            const savedUsername = getCookie('username');
-            if (savedUsername) {
-                document.getElementById('username').value = savedUsername;
-            }
 
             // Controle de brilho
             brightnessControl.addEventListener('input', function() {
-                document.body.style.filter = `brightness(${this.value})`;
+                body.style.filter = `brightness(${brightnessControl.value})`;
             });
 
-            // Controle de música
-            musicControl.addEventListener('change', function() {
-                if (this.checked) {
-                    backgroundMusic.play();
+            // Controle de modo escuro
+            darkModeControl.addEventListener('change', function() {
+                if (darkModeControl.checked) {
+                    body.classList.add('dark-mode');
                 } else {
-                    backgroundMusic.pause();
+                    body.classList.remove('dark-mode');
                 }
             });
+
+            // Controle de tamanho da fonte
+            fontSizeControl.addEventListener('input', function() {
+                body.style.fontSize = `${fontSizeControl.value}px`;
+            });
+
+            // Alternar menu de configurações
+            settingsToggle.addEventListener('click', function() {
+                settingsMenu.style.display = settingsMenu.style.display === 'flex' ? 'none' : 'flex';
+            });
+
+            function setCookie(name, value, days) {
+                var expires = "";
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            }
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
