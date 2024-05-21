@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TheReadyProject</title>
-    <link rel="icon" href="assets/predios.jpg">
+    <link rel="icon" href="assets/icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('assets/Forest.png') no-repeat center center fixed;
+            background: url('assets/predios.jpg') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             flex-direction: column;
@@ -86,6 +86,7 @@
             border: 1px solid #D32F2F;
             border-radius: 4px;
             padding: 5px;
+            display: none; /* Inicialmente oculto */
         }
 
         .login-form h2 {
@@ -169,7 +170,7 @@
 <body>
     <div class="header">
         <div class="settings-toggle">
-            <img src="assets/settings_icon.png" alt="Settings">
+            <img src="assets/settings.png" alt="Settings">
         </div>
         <div class="settings">
             <label for="brightness">Brilho</label>
@@ -239,14 +240,26 @@
 
                 if (username === 'Aluno' && password === 'Aluno') {
                     loginError.textContent = '';
+                    loginError.style.display = 'none'; // Ocultar a mensagem de erro
                     const link = loginBtn.getAttribute('data-link');
                     setCookie('username', username, 30);
                     window.location.href = link;
                 } else {
                     loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
-                    loginError.style.visibility = 'visible'; // Torna a mensagem de erro visível
+                    loginError.style.display = 'block'; // Exibir a mensagem de erro
                 }
             });
+
+            const cookiesAccepted = getCookie('cookiesAccepted');
+            if (cookiesAccepted) {
+                // Se os cookies foram aceitos, ative automaticamente a opção "Lembrar-me"
+                const rememberMe = document.createElement('input');
+                rememberMe.type = 'checkbox';
+                rememberMe.id = 'rememberMe';
+                rememberMe.checked = true; // Definir como marcado
+                rememberMe.className = 'hidden'; // Ocultar o checkbox
+                document.querySelector('.form-group').appendChild(rememberMe);
+            }
 
             var links = document.getElementsByTagName('a');
             for (var i = 0; i < links.length; i++) {
@@ -265,15 +278,7 @@
             acceptCookiesBtn.addEventListener('click', function() {
                 cookieModal.hide();
                 setCookie('cookiesAccepted', 'true', 30);
-                // Ativar automaticamente a opção "Lembrar-me" ao aceitar cookies
-                setCookie('rememberMe', 'true', 30);
             });
-
-            // Verificar se os cookies foram aceitos e ativar "Lembrar-me"
-            const cookiesAccepted = getCookie('cookiesAccepted');
-            if (cookiesAccepted) {
-                setCookie('rememberMe', 'true', 30);
-            }
 
             // Controle de brilho
             brightnessControl.addEventListener('input', function() {
@@ -296,17 +301,13 @@
 
             // Alternar menu de configurações
             settingsToggle.addEventListener('click', function() {
-                if (header.classList.contains('expanded')) {
-                    header.classList.remove('expanded');
-                } else {
-                    header.classList.add('expanded');
-                }
+                header.classList.toggle('expanded');
             });
 
             function setCookie(name, value, days) {
-                let expires = "";
+                var expires = "";
                 if (days) {
-                    const date = new Date();
+                    var date = new Date();
                     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
                     expires = "; expires=" + date.toUTCString();
                 }
@@ -317,9 +318,10 @@
                 const nameEQ = name + "=";
                 const ca = document.cookie.split(';');
                 for(let i = 0; i < ca.length; i++) {
-                    let c = ca[i];
-                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                    let c = ca[i].trim();
+                    if (c.indexOf(nameEQ) === 0) {
+                        return c.substring(nameEQ.length, c.length);
+                    }
                 }
                 return null;
             }
