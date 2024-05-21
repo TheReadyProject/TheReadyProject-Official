@@ -172,7 +172,7 @@
                     <input type="password" id="password" placeholder="Senha" class="form-control" autocomplete="off">
                     <!-- Interruptor (toggle switch) para lembrar-me -->
                     <label class="switch">
-                        <input type="checkbox" id="rememberMe">
+                        <input type="checkbox" id="rememberMe" checked>
                         <span class="slider"></span>
                     </label>
                     <label for="rememberMe" class="remember-me">Lembrar-me</label>
@@ -241,6 +241,8 @@
 
             if (!getCookie('cookies_accepted')) {
                 cookieModal.show();
+            } else {
+                rememberMe.checked = true;
             }
 
             acceptCookiesBtn.addEventListener('click', function() {
@@ -283,7 +285,6 @@
             const savedUsername = getCookie('username');
             if (savedUsername) {
                 document.getElementById('username').value = savedUsername;
-                rememberMe.checked = true;
             }
         });
     </script>
