@@ -18,6 +18,12 @@ body {
   padding: 20px;
 } 
 
+h2 {
+  font-size: 30px;
+  color: #161c29;
+  padding: 10px;
+}
+
 .recommended-courses button {
   width: calc(100% - 22px);
   padding: 10px;
@@ -27,13 +33,9 @@ body {
   color: #fff;
   cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .recommended-courses button:hover {
   background-color: #273248;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ac94b77675910ec1c0cc26db2872169362b80a63
