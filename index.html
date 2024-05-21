@@ -11,7 +11,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('assets/predios.jpg') no-repeat center center fixed;
+            background: url('assets/Forest.png') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             flex-direction: column;
@@ -175,7 +175,7 @@
                 <div class="form-group">
                     <input type="text" id="username" placeholder="Nome de usuário" class="form-control" autocomplete="off">
                     <input type="password" id="password" placeholder="Senha" class="form-control" autocomplete="off">
-                    <label for="rememberMe" class="remember-me hidden">Lembrar-me</label>
+                    <!-- Removido o label de "Lembrar-me" -->
                 </div>
                 <button id="login-btn" type="submit" data-link="content/choice-form">Entrar</button>
                 <div id="login-error" class="message"></div>
@@ -246,7 +246,15 @@
             acceptCookiesBtn.addEventListener('click', function() {
                 cookieModal.hide();
                 setCookie('cookiesAccepted', 'true', 30);
+                // Ativar automaticamente a opção "Lembrar-me" ao aceitar cookies
+                setCookie('rememberMe', 'true', 30);
             });
+
+            // Verificar se os cookies foram aceitos e ativar "Lembrar-me"
+            const cookiesAccepted = getCookie('cookiesAccepted');
+            if (cookiesAccepted) {
+                setCookie('rememberMe', 'true', 30);
+            }
 
             // Controle de brilho
             brightnessControl.addEventListener('input', function() {
@@ -280,6 +288,17 @@
                     expires = "; expires=" + date.toUTCString();
                 }
                 document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            }
+
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
             }
         });
     </script>
