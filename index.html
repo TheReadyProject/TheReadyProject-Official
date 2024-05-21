@@ -100,7 +100,6 @@
             height: 50px;
             cursor: pointer;
         }
-
     </style>
 </head>
 <body>
@@ -117,9 +116,28 @@
                     <input type="text" id="username" placeholder="Nome de usuário" class="form-control" autocomplete="off">
                     <input type="password" id="password" placeholder="Senha" class="form-control" autocomplete="off">
                 </div>
-                <button id="login-btn" type="submit" data-link="content/choice-form.html">Entrar</button>
+                <button id="login-btn" type="submit" data-link="content/choice-form">Entrar</button>
                 <div id="login-error" class="message"></div>
             </form>
+        </div>
+    </div>
+
+    <!-- Modal de Cookies -->
+    <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cookieModalLabel">Aceitar Cookies</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Este site usa cookies para garantir que você obtenha a melhor experiência. Deseja aceitar os cookies?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Recusar</button>
+                    <button type="button" class="btn btn-primary" id="accept-cookies">Aceitar</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -127,7 +145,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             const loginForm = document.getElementById('login-form');
             const loginError = document.getElementById('login-error');
-            const loginTitle = document.getElementById('login-title');
             const loginBtn = document.getElementById('login-btn');
           
             loginForm.addEventListener('submit', function(event) {
@@ -138,19 +155,53 @@
                 if (username === 'Aluno' && password === 'Aluno') {
                     loginError.textContent = '';
                     const link = loginBtn.getAttribute('data-link');
+                    setCookie('username', username, 1);
                     window.location.href = link;
                 } else {
                     loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
                 }
             });
-          
-            document.addEventListener('DOMContentLoaded', function() {
+
             var links = document.getElementsByTagName('a');
             for (var i = 0; i < links.length; i++) {
                 var href = links[i].getAttribute('href');
                 if (href && href.endsWith('.html')) {
                     links[i].setAttribute('href', href.slice(0, -5));
                 }
+            }
+
+            const cookieModal = new bootstrap.Modal(document.getElementById('cookieModal'));
+            const acceptCookiesBtn = document.getElementById('accept-cookies');
+
+            if (!getCookie('cookies_accepted')) {
+                cookieModal.show();
+            }
+
+            acceptCookiesBtn.addEventListener('click', function() {
+                setCookie('cookies_accepted', 'true', 30);
+                cookieModal.hide();
+            });
+
+            function setCookie(name, value, days) {
+                const d = new Date();
+                d.setTime(d.getTime() + (days*24*60*60*1000));
+                const expires = "expires=" + d.toUTCString();
+                document.cookie = name + "=" + value + ";" + expires + ";path=/";
+            }
+
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(nameEQ) == 0) {
+                        return c.substring(nameEQ.length, c.length);
+                    }
+                }
+                return null;
             }
         });
     </script>
