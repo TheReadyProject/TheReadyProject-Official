@@ -21,12 +21,12 @@
             position: relative;
             transition: filter 0.3s, background-color 0.3s, color 0.3s;
         }
-
+    
         .login-page {
-            width: 360px;
-            background-color: #F1F6F9;
+            width: 500px; /* Aumentando a largura */
+            background-color: rgba(241, 246, 249, 0); /* Tornando o fundo transparente */
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.492);
             text-align: center;
             padding: 20px;
             z-index: 1;
@@ -112,7 +112,7 @@
         }
 
         .header.expanded {
-            height: 200px; /* Altura expandida */
+            height: 150px; /* Altura expandida */
         }
 
         .header .github-link img {
@@ -136,9 +136,11 @@
             border-radius: 5px;
             position: absolute;
             top: 60px; /* Ajuste de posição */
-            right: 10px;
+            right: 50%;
+            transform: translateX(50%);
             transition: opacity 0.3s;
             opacity: 0;
+            width: 200px;
         }
 
         .header.expanded .settings {
@@ -146,8 +148,13 @@
             opacity: 1;
         }
 
+        .settings label {
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
         .settings input[type="range"] {
-            width: 100px;
+            width: 100%;
         }
 
         .settings-toggle img {
@@ -160,11 +167,6 @@
         .settings-toggle img:hover {
             transform: scale(1.1);
         }
-
-        .dark-mode {
-            background-color: #212A3E;
-            color: #F1F6F9;
-        }
     </style>
 </head>
 <body>
@@ -175,10 +177,6 @@
         <div class="settings">
             <label for="brightness">Brilho</label>
             <input type="range" id="brightness" name="brightness" min="0.5" max="2" step="0.1" value="1">
-            <label for="dark-mode">Modo Escuro</label>
-            <input type="checkbox" id="dark-mode" name="dark-mode">
-            <label for="font-size">Tamanho da Fonte</label>
-            <input type="range" id="font-size" name="font-size" min="12" max="24" step="1" value="16">
         </div>
         <div class="github-link">
             <a href="https://github.com/TheReadyProject/TheReadyProject-Official" target="_blank">
@@ -193,8 +191,13 @@
                 <div class="form-group">
                     <input type="text" id="username" placeholder="Nome de usuário" class="form-control" autocomplete="off">
                     <input type="password" id="password" placeholder="Senha" class="form-control" autocomplete="off">
-                    <!-- Removido o label de "Lembrar-me" -->
                 </div>
+                
+                <footer>
+                    Ao acessar o site, você concorda com os <a href="https://github.com/TheReadyProject/TheReadyProject-Official/blob/main/Termos-e-Condições.md" target="_blank">termos e condições</a>.
+               
+             </footer>
+
                 <button id="login-btn" type="submit" data-link="content/choice-form">Entrar</button>
                 <div id="login-error" class="message"></div>
             </form>
@@ -226,10 +229,7 @@
             const loginError = document.getElementById('login-error');
             const loginBtn = document.getElementById('login-btn');
             const brightnessControl = document.getElementById('brightness');
-            const darkModeControl = document.getElementById('dark-mode');
-            const fontSizeControl = document.getElementById('font-size');
             const settingsToggle = document.querySelector('.settings-toggle img');
-            const settingsMenu = document.querySelector('.settings');
             const header = document.querySelector('.header');
             const body = document.body;
 
@@ -250,15 +250,16 @@
                 }
             });
 
+            loginForm.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    loginBtn.click();
+                }
+            });
+
             const cookiesAccepted = getCookie('cookiesAccepted');
             if (cookiesAccepted) {
                 // Se os cookies foram aceitos, ative automaticamente a opção "Lembrar-me"
-                const rememberMe = document.createElement('input');
-                rememberMe.type = 'checkbox';
-                rememberMe.id = 'rememberMe';
-                rememberMe.checked = true; // Definir como marcado
-                rememberMe.className = 'hidden'; // Ocultar o checkbox
-                document.querySelector('.form-group').appendChild(rememberMe);
+                document.getElementById('username').value = getCookie('username') || '';
             }
 
             var links = document.getElementsByTagName('a');
@@ -273,7 +274,9 @@
             const acceptCookiesBtn = document.getElementById('accept-cookies');
 
             // Mostrar modal de cookies ao carregar a página
-            cookieModal.show();
+            if (!cookiesAccepted) {
+                cookieModal.show();
+            }
 
             acceptCookiesBtn.addEventListener('click', function() {
                 cookieModal.hide();
@@ -283,20 +286,6 @@
             // Controle de brilho
             brightnessControl.addEventListener('input', function() {
                 body.style.filter = `brightness(${brightnessControl.value})`;
-            });
-
-            // Controle de modo escuro
-            darkModeControl.addEventListener('change', function() {
-                if (darkModeControl.checked) {
-                    body.classList.add('dark-mode');
-                } else {
-                    body.classList.remove('dark-mode');
-                }
-            });
-
-            // Controle de tamanho da fonte
-            fontSizeControl.addEventListener('input', function() {
-                body.style.fontSize = `${fontSizeControl.value}px`;
             });
 
             // Alternar menu de configurações
@@ -327,5 +316,6 @@
             }
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
