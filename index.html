@@ -54,9 +54,7 @@
         }
 
         input[type='text']:focus,
-        input[type='text']:focus-visible,
-        input[type='password']:focus,
-        input[type='password']:focus-visible {
+        input[type='password']:focus {
             border: 2px solid #212A3E; 
             box-shadow: none;
         }
@@ -76,7 +74,7 @@
         }
 
         button:hover {
-            background-color: #273248
+            background-color: #273248;
         }
 
         .message {
@@ -145,10 +143,6 @@
             transform: scale(1.1);
         }
 
-        .hidden {
-            display: none;
-        }
-
         .dark-mode {
             background-color: #212A3E;
             color: #F1F6F9;
@@ -181,7 +175,6 @@
                 <div class="form-group">
                     <input type="text" id="username" placeholder="Nome de usuário" class="form-control" autocomplete="off">
                     <input type="password" id="password" placeholder="Senha" class="form-control" autocomplete="off">
-                    <!-- Interrupção (toggle switch) para lembrar-me -->
                     <label for="rememberMe" class="remember-me hidden">Lembrar-me</label>
                 </div>
                 <button id="login-btn" type="submit" data-link="content/choice-form">Entrar</button>
@@ -236,9 +229,9 @@
                 }
             });
 
-            var links = document.getElementsByTagName('a');
-            for (var i = 0; i < links.length; i++) {
-                var href = links[i].var href = links[i].getAttribute('href');
+            const links = document.getElementsByTagName('a');
+            for (let i = 0; i < links.length; i++) {
+                const href = links[i].getAttribute('href');
                 if (href && href.endsWith('.html')) {
                     links[i].setAttribute('href', href.slice(0, -5));
                 }
@@ -280,9 +273,9 @@
             });
 
             function setCookie(name, value, days) {
-                var expires = "";
+                let expires = "";
                 if (days) {
-                    var date = new Date();
+                    const date = new Date();
                     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
                     expires = "; expires=" + date.toUTCString();
                 }
