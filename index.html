@@ -11,8 +11,10 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #212A3E;
+            background: url('assets/Forest.png') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
@@ -89,24 +91,33 @@
             color: #161c29;
         }
 
-        .github-link {
+        .header {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 0;
+            left: 0;
         }
 
-        .github-link img {
-            width: 50px;
-            height: 50px;
+        .header .github-link img {
+            width: 30px;
+            height: 30px;
             cursor: pointer;
         }
 
-        /* Estilos para o texto "Lembrar-me" */
-        .remember-me {
-            font-weight: bold;
-            color: #394867;
-            margin-left: 10px;
-            font-size: 16px;
+        .settings {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+        }
+
+        .settings input[type="range"] {
+            width: 100px;
         }
 
         .hidden {
@@ -115,11 +126,23 @@
     </style>
 </head>
 <body>
-    <div class="github-link">
-        <a href="https://github.com/TheReadyProject/TheReadyProject-Official" target="_blank">
-            <img src="assets/github.png" alt="GitHub">
-        </a>
+    <div class="header">
+        <div class="settings">
+            <label for="brightness">Brilho</label>
+            <input type="range" id="brightness" name="brightness" min="0.5" max="2" step="0.1" value="1">
+            <label for="music">Música</label>
+            <input type="checkbox" id="music" name="music" checked>
+        </div>
+        <div class="github-link">
+            <a href="https://github.com/TheReadyProject/TheReadyProject-Official" target="_blank">
+                <img src="assets/github.png" alt="GitHub">
+            </a>
+        </div>
     </div>
+    <audio id="background-music" autoplay loop>
+        <source src="assets/music/Forest.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <div class="login-page">
         <div class="login-form show">
             <h2 id="login-title">Entrar</h2>
@@ -160,7 +183,10 @@
             const loginForm = document.getElementById('login-form');
             const loginError = document.getElementById('login-error');
             const loginBtn = document.getElementById('login-btn');
-          
+            const brightnessControl = document.getElementById('brightness');
+            const musicControl = document.getElementById('music');
+            const backgroundMusic = document.getElementById('background-music');
+
             loginForm.addEventListener('submit', function(event) {
                 event.preventDefault();
                 const username = document.getElementById('username').value;
@@ -232,6 +258,20 @@
             if (savedUsername) {
                 document.getElementById('username').value = savedUsername;
             }
+
+            // Controle de brilho
+            brightnessControl.addEventListener('input', function() {
+                document.body.style.filter = `brightness(${this.value})`;
+            });
+
+            // Controle de música
+            musicControl.addEventListener('change', function() {
+                if (this.checked) {
+                    backgroundMusic.play();
+                } else {
+                    backgroundMusic.pause();
+                }
+            });
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
