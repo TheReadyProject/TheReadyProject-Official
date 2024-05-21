@@ -101,53 +101,6 @@
             cursor: pointer;
         }
 
-        /* Estilos para o interruptor (toggle switch) */
-        .switch {
-            display: flex;
-            align-items: center;
-        }
-
-        .switch input { 
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: relative;
-            cursor: pointer;
-            width: 40px;
-            height: 20px;
-            background-color: #ccc;
-            border-radius: 34px;
-            margin-left: 10px;
-            transition: background-color 0.4s;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 2px;
-            bottom: 2px;
-            background-color: white;
-            border-radius: 50%;
-            transition: transform 0.4s;
-        }
-
-        input:checked + .slider {
-            background-color: #2196F3;
-        }
-
-        input:focus + .slider {
-            box-shadow: 0 0 1px #2196F3;
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(20px);
-        }
-
         /* Estilos para o texto "Lembrar-me" */
         .remember-me {
             font-weight: bold;
@@ -174,12 +127,8 @@
                 <div class="form-group">
                     <input type="text" id="username" placeholder="Nome de usuário" class="form-control" autocomplete="off">
                     <input type="password" id="password" placeholder="Senha" class="form-control" autocomplete="off">
-                    <!-- Interruptor (toggle switch) para lembrar-me -->
-                    <label class="switch" id="rememberMeContainer">
-                        <input type="checkbox" id="rememberMe">
-                        <span class="slider"></span>
-                    </label>
-                    <label for="rememberMe" class="remember-me">Lembrar-me</label>
+                    <!-- Interrupção (toggle switch) para lembrar-me -->
+                    <label for="rememberMe" class="remember-me hidden">Lembrar-me</label>
                 </div>
                 <button id="login-btn" type="submit" data-link="content/choice-form">Entrar</button>
                 <div id="login-error" class="message"></div>
@@ -211,8 +160,6 @@
             const loginForm = document.getElementById('login-form');
             const loginError = document.getElementById('login-error');
             const loginBtn = document.getElementById('login-btn');
-            const rememberMeContainer = document.getElementById('rememberMeContainer');
-            const rememberMe = document.getElementById('rememberMe');
           
             loginForm.addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -222,11 +169,7 @@
                 if (username === 'Aluno' && password === 'Aluno') {
                     loginError.textContent = '';
                     const link = loginBtn.getAttribute('data-link');
-                    if (rememberMe.checked) {
-                        setCookie('username', username, 30);
-                    } else {
-                        setCookie('username', username, 1);
-                    }
+                    setCookie('username', username, 30);
                     window.location.href = link;
                 } else {
                     loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
@@ -246,15 +189,11 @@
 
             if (!getCookie('cookies_accepted')) {
                 cookieModal.show();
-            } else {
-                rememberMeContainer.classList.add('hidden');
-                rememberMe.checked = true;
             }
 
             acceptCookiesBtn.addEventListener('click', function() {
                 setCookie('cookies_accepted', 'true', 30);
                 cookieModal.hide();
-                rememberMeContainer.classList.add('hidden');
             });
 
             function setCookie(name, value, days) {
