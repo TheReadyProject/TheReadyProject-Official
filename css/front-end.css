@@ -55,5 +55,6 @@ ul li a {
 
 ul li a:hover {
     color: #6CA9C5;
+    text-decoration: underline;
 }
 
