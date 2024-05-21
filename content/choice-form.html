@@ -18,17 +18,23 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        const discordBtn = document.getElementById('discord-btn')
+        const discordBtn = document.getElementById('discord-btn');
         const ourCoursesBtn = document.getElementById('our-courses-btn');
         const recommendedBtn = document.getElementById('recommended-btn');
         const downloadQuestsBtn = document.getElementById('download-quests-btn');
 
-        // Lógica para os outros botões (Discord, Nossos Cursos)
+        // Lógica para os botões
         discordBtn.addEventListener('click', function() {
-            alert('Em andamento');
+            window.location.href = 'https://discord.gg/Zg675dGjB8';
         });
         ourCoursesBtn.addEventListener('click', function() {
             alert('Em andamento');
+        });
+        recommendedBtn.addEventListener('click', function() {
+            window.location.href = 'rec-form.html';
+        });
+        downloadQuestsBtn.addEventListener('click', function() {
+            window.location.href = '../Questions/Quests.py';
         });
       });
     </script>
