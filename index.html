@@ -100,6 +100,61 @@
             height: 50px;
             cursor: pointer;
         }
+
+        /* Estilos para o interruptor (toggle switch) */
+        .switch {
+            display: flex;
+            align-items: center;
+        }
+
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: relative;
+            cursor: pointer;
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 34px;
+            margin-left: 10px;
+            transition: background-color 0.4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        /* Estilos para o texto "Lembrar-me" */
+        .remember-me {
+            font-weight: bold;
+            color: #394867;
+            margin-left: 10px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -115,6 +170,12 @@
                 <div class="form-group">
                     <input type="text" id="username" placeholder="Nome de usuário" class="form-control" autocomplete="off">
                     <input type="password" id="password" placeholder="Senha" class="form-control" autocomplete="off">
+                    <!-- Interruptor (toggle switch) para lembrar-me -->
+                    <label class="switch">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="slider"></span>
+                    </label>
+                    <label for="rememberMe" class="remember-me">Lembrar-me</label>
                 </div>
                 <button id="login-btn" type="submit" data-link="content/choice-form">Entrar</button>
                 <div id="login-error" class="message"></div>
@@ -146,6 +207,7 @@
             const loginForm = document.getElementById('login-form');
             const loginError = document.getElementById('login-error');
             const loginBtn = document.getElementById('login-btn');
+            const rememberMe = document.getElementById('rememberMe');
           
             loginForm.addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -155,7 +217,11 @@
                 if (username === 'Aluno' && password === 'Aluno') {
                     loginError.textContent = '';
                     const link = loginBtn.getAttribute('data-link');
-                    setCookie('username', username, 1);
+                    if (rememberMe.checked) {
+                        setCookie('username', username, 30);
+                    } else {
+                        setCookie('username', username, 1);
+                    }
                     window.location.href = link;
                 } else {
                     loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
@@ -186,22 +252,38 @@
                 const d = new Date();
                 d.setTime(d.getTime() + (days*24*60*60*1000));
                 const expires = "expires=" + d.toUTCString();
-                document.cookie = name + "=" + value + ";" + expires + ";path=/";
+                document.cookie = `${name}=${value};${expires};path=/;SameSite=Lax`;
             }
 
             function getCookie(name) {
-                const nameEQ = name + "=";
+                const nameEQ = `${name}=`;
                 const ca = document.cookie.split(';');
                 for(let i = 0; i < ca.length; i++) {
-                    let c = ca[i];
-                    while (c.charAt(0) == ' ') {
-                        c = c.substring(1);
-                    }
-                    if (c.indexOf(nameEQ) == 0) {
+                    let c = ca[i].trim();
+                    if (c.indexOf(nameEQ) === 0) {
                         return c.substring(nameEQ.length, c.length);
                     }
                 }
                 return null;
+            }
+
+            function deleteCookie(name) {
+                document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;SameSite=Lax`;
+            }
+
+            function listCookies() {
+                const cookies = document.cookie.split(';');
+                return cookies.map(cookie => cookie.trim());
+            }
+
+            // Exemplo de uso de funções adicionais
+            console.log("Todos os cookies:", listCookies());
+
+            // Lembre-se do login, se o cookie estiver definido
+            const savedUsername = getCookie('username');
+            if (savedUsername) {
+                document.getElementById('username').value = savedUsername;
+                rememberMe.checked = true;
             }
         });
     </script>
