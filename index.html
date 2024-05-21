@@ -155,6 +155,10 @@
             margin-left: 10px;
             font-size: 16px;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -171,8 +175,8 @@
                     <input type="text" id="username" placeholder="Nome de usuário" class="form-control" autocomplete="off">
                     <input type="password" id="password" placeholder="Senha" class="form-control" autocomplete="off">
                     <!-- Interruptor (toggle switch) para lembrar-me -->
-                    <label class="switch">
-                        <input type="checkbox" id="rememberMe" checked>
+                    <label class="switch" id="rememberMeContainer">
+                        <input type="checkbox" id="rememberMe">
                         <span class="slider"></span>
                     </label>
                     <label for="rememberMe" class="remember-me">Lembrar-me</label>
@@ -207,6 +211,7 @@
             const loginForm = document.getElementById('login-form');
             const loginError = document.getElementById('login-error');
             const loginBtn = document.getElementById('login-btn');
+            const rememberMeContainer = document.getElementById('rememberMeContainer');
             const rememberMe = document.getElementById('rememberMe');
           
             loginForm.addEventListener('submit', function(event) {
@@ -242,12 +247,14 @@
             if (!getCookie('cookies_accepted')) {
                 cookieModal.show();
             } else {
+                rememberMeContainer.classList.add('hidden');
                 rememberMe.checked = true;
             }
 
             acceptCookiesBtn.addEventListener('click', function() {
                 setCookie('cookies_accepted', 'true', 30);
                 cookieModal.hide();
+                rememberMeContainer.classList.add('hidden');
             });
 
             function setCookie(name, value, days) {
