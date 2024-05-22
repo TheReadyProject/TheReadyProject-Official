@@ -6,31 +6,41 @@
     <title>Desenvolvimento TV - TheReadyProject</title>
     <link rel="icon" href="../assets/icon.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/tv.css">
+    <link rel="stylesheet" href="../css/front-end.css">
 </head>
 <body>
-    <div class="progress-container">
-        <div id="progress-bar" class="progress-bar"></div>
-    </div>
-    <div class="content-page">
+    <div class="container">
         <h1 class="title">Desenvolvimento TV</h1>
-        <p>Conteúdo e recursos para desenvolvimento de aplicativos para TV.</p>
-        <h2 class="topics">Aulas</h2>
-        <ul class="topics">
-            <li class="topic" id="course-1"><a href="https://developer.android.com/training/tv">Google - Android TV Development</a></li>
-            <li class="topic" id="course-2"><a href="https://www.udemy.com/course/android-tv-app-development/">Udemy - Android TV App Development</a></li>
-        </ul>
-        <h2 class="topics">Recursos</h2>
-        <ul class="topics">
-            <li class="topic" id="resource-1"><a href="https://developer.android.com/training/tv">Documentação Oficial do Android TV</a></li>
-            <li class="topic" id="resource-2"><a href="https://stackoverflow.com/questions/tagged/android-tv">Stack Overflow - Android TV</a></li>
-            <li class="topic" id="resource-3"><a href="https://github.com/entertailion/Android-TV-Apps">Exemplos de Apps para Android TV no GitHub</a></li>
-            <!-- Informações adicionais -->
-            <li class="topic" id="resource-4"><a href="https://www.tensorflow.org/">TensorFlow</a> - Uma biblioteca popular para aprendizado de máquina.</li>
-            <li class="topic" id="resource-5"><a href="https://pytorch.org/">PyTorch</a> - Uma biblioteca de aprendizado de máquina de código aberto.</li>
-            <li class="topic" id="resource-6"><a href="https://scikit-learn.org/stable/">scikit-learn</a> - Uma biblioteca em Python para aprendizado de máquina.</li>
-        </ul>
+        <div class="topics">
+            <div class="topic" id="tv-courses">
+                <h2>Aulas</h2>
+                <p>Cursos essenciais para aprender desenvolvimento de aplicativos para TV.</p>
+                <p>Recursos:</p>
+                <ul>
+                    <li><a href="https://developer.android.com/training/tv">Google - Android TV Development</a></li>
+                    <li><a href="https://www.udemy.com/course/android-tv-app-development/">Udemy - Android TV App Development</a></li>
+                </ul>
+            </div>
+            <div class="topic" id="tv-resources">
+                <h2>Recursos</h2>
+                <p>Recursos úteis para desenvolvedores de aplicativos para TV.</p>
+                <p>Recursos:</p>
+                <ul>
+                    <li><a href="https://developer.android.com/training/tv">Documentação Oficial do Android TV</a></li>
+                    <li><a href="https://stackoverflow.com/questions/tagged/android-tv">Stack Overflow - Android TV</a></li>
+                    <li><a href="https://github.com/entertailion/Android-TV-Apps">Exemplos de Apps para Android TV no GitHub</a></li>
+                    <li><a href="https://www.tensorflow.org/">TensorFlow</a> - Uma biblioteca popular para aprendizado de máquina.</li>
+                    <li><a href="https://pytorch.org/">PyTorch</a> - Uma biblioteca de aprendizado de máquina de código aberto.</li>
+                    <li><a href="https://scikit-learn.org/stable/">scikit-learn</a> - Uma biblioteca em Python para aprendizado de máquina.</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <script src="../js/tv.js"></script>
+    
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <script src="../js/front-end-animations.js"></script>
 </body>
 </html>
