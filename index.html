@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -36,6 +37,41 @@ body {
     padding: 20px;
     z-index: 1;
     margin-bottom: 20px; /* Adicionando margem inferior */
+    position: relative; /* Adicionando posição relativa para a borda pulsante */
+
+    /* Adicionando animação à borda */
+    border: 3px solid transparent;
+    animation: borderPulse 3s infinite alternate; /* Animação da borda pulsante */
+}
+
+@keyframes borderPulse {
+    0%, 100% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #F3A343; /* Cor da borda */
+    }
+}
+
+.login-form {
+    /* Escurecer o interior do formulário */
+    background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo escura */
+    padding: 20px; /* Espaçamento interno */
+
+    /* Arredondar a borda */
+    border-radius: 8px;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-color: #F3A343; /* Cor inicial */
+    }
+    50% {
+        background-color: #E28C3C; /* Cor intermediária */
+    }
+    100% {
+        background-color: #F3A343; /* Cor final */
+    }
 }
 
 .form-group {
@@ -200,6 +236,7 @@ footer a:hover {
         font-size: 24px; /* Reduzir o tamanho do título em telas menores */
     }
 }
+
     </style>
 
     <!-- paleta de cores: #0c3540 #617D8A #cfd8d9 #f5f5f5-->
