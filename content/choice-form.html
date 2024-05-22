@@ -1,17 +1,23 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/icon.png" />
+    <link rel="stylesheet" href="../css/choice-form.css" />
+    <title>TheReadyProject</title>
+  </head>
+  <body>
+    <div class="choice-form">
+      <h2>Escolha uma Área</h2>
+      <button id="discord-btn">Discord</button>
+      <button id="our-courses-btn">Nossos Cursos</button>
+      <button id="recommended-btn">Cursos Recomendados</button>
+      <button id="download-quests-btn">Baixar Quests.exe</button>
+    </div>
 
-<div class="choice-form">
-    <h2>Escolha uma Área</h2>
-    <button id="discord-btn">Discord</button>
-    <button id="our-courses-btn">Nossos Cursos</button>
-    <button id="recommended-btn">Cursos Recomendados</button>
-    <button id="download-quests-btn">Baixar Quests.exe</button>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
         const discordBtn = document.getElementById('discord-btn');
         const ourCoursesBtn = document.getElementById('our-courses-btn');
         const recommendedBtn = document.getElementById('recommended-btn');
@@ -36,5 +42,9 @@ layout: default
             const baseUrl = currentPageUrl.substring(0, currentPageUrl.lastIndexOf('/'));
             window.location.href = `${baseUrl}/${pageName}`;
         }
-    });
-</script>
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
