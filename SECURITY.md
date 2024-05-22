@@ -10,7 +10,7 @@ Ao acessar ou contribuir para o projeto "TheReadyProject", você concorda em fic
 
 2. **Uso do Projeto**: Este projeto destina-se apenas para fins informativos e educacionais. Não é permitido qualquer uso que viole leis ou regulamentos.
 
-3. **Cookies**: Este projeto pode fazer uso de cookies para melhorar a experiência do usuário. Ao aceitar os cookies, você concorda com nossa política de cookies conforme descrita na Política de Privacidade.
+3. **Cookies e Rastreamento**: Este projeto pode fazer uso de cookies e tecnologias de rastreamento para melhorar a experiência do usuário e fornecer análises através do Google Analytics. Ao aceitar os cookies e permitir o rastreamento, você concorda com nossa política de cookies conforme descrita na Política de Privacidade.
 
 4. **Contas de Usuário**: Alguns recursos deste projeto podem exigir uma conta de usuário. Ao criar uma conta, você concorda em fornecer informações precisas e manter a segurança de sua conta.
 
