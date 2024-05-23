@@ -64,7 +64,7 @@
         .login-page {
             width: 80%; /* Definindo a largura do formulário de login */
             max-width: 500px; /* Limitando a largura máxima */
-            background-color: #150b0a;
+            background-color: rgba(21, 11, 10, 0.9);
             border-radius: 10px;
             box-shadow: 0 0 15px rgb(243, 163, 67);
             text-align: center;
@@ -89,7 +89,6 @@
 
         .login-form {
             /* Escurecer o interior do formulário */
-            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo escura */
             padding: 20px; /* Espaçamento interno */
 
             /* Arredondar a borda */
@@ -131,7 +130,7 @@
 
         input[type='text']:focus,
         input[type='password']:focus {
-            border: 2px solid #212A3E;
+            border: 2px solid #5f5f5f;
             box-shadow: none;
         }
 
@@ -143,14 +142,15 @@
 
         button {
             color: #fff;
-            background-color: #617D8A;
+            background-color: #444;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
             transition: 0.3s ease;
         }
 
         button:hover {
-            background-color: #4d646e;
+            background-color: #5f5f5f;
         }
 
         .message {
@@ -245,17 +245,18 @@
         }
 
         footer {
-            color: #f5f5f5;
+            color: #fff;
         }
 
         footer a {
             text-decoration: none;
-            color: #4E98B6;
+            color: #205375;
+            font-weight: 600;
         }
 
         footer a:hover {
             text-decoration: underline;
-            color: #6CA9C5;
+            color: #19425d;
         }
 
         /* Media queries para tornar o site responsivo */
@@ -271,14 +272,12 @@
             }
         }
     </style>
-
-    <!-- paleta de cores: #0c3540 #617D8A #cfd8d9 #f5f5f5-->
 </head>
 <body>
     <!-- Aqui começa o corpo do documento HTML -->
     <div class="header">
         <div class="settings-toggle">
-            <img src="assets/settings_icon.png" alt="Settings">
+            <img src="assets/settingsIcon2.png" alt="Settings">
         </div>
         <div class="settings">
             <label for="brightness">Brilho</label>
@@ -293,7 +292,7 @@
 
     <div class="login-page">
         <div class="login-form show">
-            <h2 id="login-title" class="animate__animated animate__fadeInDown">Entrar</h2>
+            <h2 id="login-title">Entrar</h2>
             <form id="login-form">
                 <div class="form-group">
                     <input type="text" id="username" placeholder="Nome de usuário" class="form-control" autocomplete="off">
@@ -302,6 +301,7 @@
                 <footer>
                     Ao acessar o site, você concorda com os <a href="https://github.com/TheReadyProject/TheReadyProject-Official/blob/main/SECURITY.md" target="_blank">termos e condições</a>.
                 </footer>
+
                 <button id="login-btn" type="submit" data-link="content/choice-form">Entrar</button>
                 <div id="login-error" class="message"></div>
             </form>
@@ -328,31 +328,33 @@
     </div>
 
     <script>
-        $(document).ready(function() {
-            const loginForm = $('#login-form');
-            const loginError = $('#login-error');
-            const loginBtn = $('#login-btn');
-            const brightnessControl = $('#brightness');
-            const settingsToggle = $('.settings-toggle img');
-            const header = $('.header');
-            const body = $('body');
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('login-form');
+            const loginError = document.getElementById('login-error');
+            const loginBtn = document.getElementById('login-btn');
+            const brightnessControl = document.getElementById('brightness');
+            const settingsToggle = document.querySelector('.settings-toggle img');
+            const header = document.querySelector('.header');
+            const body = document.body;
 
-            loginForm.on('submit', function(event) {
+            loginForm.addEventListener('submit', function(event) {
                 event.preventDefault();
-                const username = $('#username').val();
-                const password = $('#password').val();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
 
                 if (username === 'Aluno' && password === 'Aluno') {
-                    loginError.slideUp();
-                    const link = loginBtn.data('link');
+                    loginError.textContent = '';
+                    loginError.style.display = 'none'; // Ocultar a mensagem de erro
+                    const link = loginBtn.getAttribute('data-link');
                     setCookie('username', username, 30);
                     window.location.href = link;
                 } else {
-                    loginError.html('Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>').slideDown();
+                    loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
+                    loginError.style.display = 'block'; // Exibir a mensagem de erro
                 }
             });
 
-            loginForm.on('keydown', function(event) {
+            loginForm.addEventListener('keydown', function(event) {
                 if (event.key === 'Enter') {
                     loginBtn.click();
                 }
@@ -360,35 +362,39 @@
 
             const cookiesAccepted = getCookie('cookiesAccepted');
             if (cookiesAccepted) {
-                $('#username').val(getCookie('username') || '');
+                // Se os cookies foram aceitos, ative automaticamente a opção "Lembrar-me"
+                document.getElementById('username').value = getCookie('username') || '';
             }
 
-            var links = $('a');
-            links.each(function() {
-                var href = $(this).attr('href');
+            var links = document.getElementsByTagName('a');
+            for (var i = 0; i < links.length; i++) {
+                var href = links[i].getAttribute('href');
                 if (href && href.endsWith('.html')) {
-                    $(this).attr('href', href.slice(0, -5));
+                    links[i].setAttribute('href', href.slice(0, -5));
                 }
-            });
+            }
 
-            const cookieModal = new bootstrap.Modal($('#cookieModal'));
-            const acceptCookiesBtn = $('#accept-cookies');
+            const cookieModal = new bootstrap.Modal(document.getElementById('cookieModal'));
+            const acceptCookiesBtn = document.getElementById('accept-cookies');
 
+            // Mostrar modal de cookies ao carregar a página
             if (!cookiesAccepted) {
                 cookieModal.show();
             }
 
-            acceptCookiesBtn.on('click', function() {
+            acceptCookiesBtn.addEventListener('click', function() {
                 cookieModal.hide();
                 setCookie('cookiesAccepted', 'true', 30);
             });
 
-            brightnessControl.on('input', function() {
-                body.css('filter', `brightness(${brightnessControl.val()})`);
+            // Controle de brilho
+            brightnessControl.addEventListener('input', function() {
+                body.style.filter = `brightness(${brightnessControl.value})`;
             });
 
-            settingsToggle.on('click', function() {
-                header.toggleClass('expanded');
+            // Alternar menu de configurações
+            settingsToggle.addEventListener('click', function() {
+                header.classList.toggle('expanded');
             });
 
             function setCookie(name, value, days) {
