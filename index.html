@@ -329,7 +329,89 @@
 
     <script>
         $(document).ready(function() {
-            // Seus scripts JavaScript
+            const loginForm = $('#login-form');
+            const loginError = $('#login-error');
+            const loginBtn = $('#login-btn');
+            const brightnessControl = $('#brightness');
+            const settingsToggle = $('.settings-toggle img');
+            const header = $('.header');
+            const body = $('body');
+
+            loginForm.on('submit', function(event) {
+                event.preventDefault();
+                const username = $('#username').val();
+                const password = $('#password').val();
+
+                if (username === 'Aluno' && password === 'Aluno') {
+                    loginError.slideUp();
+                    const link = loginBtn.data('link');
+                    setCookie('username', username, 30);
+                    window.location.href = link;
+                } else {
+                    loginError.html('Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>').slideDown();
+                }
+            });
+
+            loginForm.on('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    loginBtn.click();
+                }
+            });
+
+            const cookiesAccepted = getCookie('cookiesAccepted');
+            if (cookiesAccepted) {
+                $('#username').val(getCookie('username') || '');
+            }
+
+            var links = $('a');
+            links.each(function() {
+                var href = $(this).attr('href');
+                if (href && href.endsWith('.html')) {
+                    $(this).attr('href', href.slice(0, -5));
+                }
+            });
+
+            const cookieModal = new bootstrap.Modal($('#cookieModal'));
+            const acceptCookiesBtn = $('#accept-cookies');
+
+            if (!cookiesAccepted) {
+                cookieModal.show();
+            }
+
+            acceptCookiesBtn.on('click', function() {
+                cookieModal.hide();
+                setCookie('cookiesAccepted', 'true', 30);
+            });
+
+            brightnessControl.on('input', function() {
+                body.css('filter', `brightness(${brightnessControl.val()})`);
+            });
+
+            settingsToggle.on('click', function() {
+                header.toggleClass('expanded');
+            });
+
+            function setCookie(name, value, days) {
+                var expires = "";
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            }
+
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i].trim();
+                    if (c.indexOf(nameEQ) === 0) {
+                        return c.substring(nameEQ.length, c.length);
+                    }
+                }
+                return null;
+            }
         });
     </script>
 
