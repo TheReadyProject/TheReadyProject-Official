@@ -16,7 +16,7 @@
       <button id="discord-btn">Discord</button>
       <button id="our-courses-btn">Nossos Cursos</button>
       <button id="recommended-btn">Cursos Recomendados</button>
-      <button id="download-quests-btn">Baixar Quests.py</button>
+      <button id="download-quests-btn">Baixar Quests.exe</button>
     </div>
 
     <script>
@@ -34,14 +34,20 @@
             alert('Em andamento');
         });
         recommendedBtn.addEventListener('click', function() {
-            window.location.href = 'rec-form.html';
+            redirectToPageWithoutHtmlExtension('rec-form');
         });
         downloadQuestsBtn.addEventListener('click', function() {
-            window.location.href = '../Questions/Quests.py';
+            window.location.href = '../Questions/Quests.zip';
         });
+
+        function redirectToPageWithoutHtmlExtension(pageName) {
+            const currentPageUrl = window.location.href;
+            const baseUrl = currentPageUrl.substring(0, currentPageUrl.lastIndexOf('/'));
+            window.location.href = `${baseUrl}/${pageName}`;
+        }
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
