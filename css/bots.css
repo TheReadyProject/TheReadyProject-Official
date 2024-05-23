@@ -1,13 +1,15 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    background: linear-gradient(to bottom right, #311502,  #784212, #855429 );
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    color: #fff;
 }
 
 .title {
@@ -41,8 +43,15 @@ body {
 }
 
 .topic ul li a {
+    color: #a5bac7;
     text-decoration: none;
-    color: #007bff;
+    font-weight: 600;
+}
+
+
+.topic ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
 }
 
 .progress-container {
@@ -51,11 +60,11 @@ body {
     left: 0;
     width: 100%;
     height: 5px;
-    background-color: #f0f0f0;
+    background-color: #fff;
 }
 
 .progress-bar {
     height: 100%;
-    background-color: #007bff;
+    background-color: #444;
     width: 0%;
 }
