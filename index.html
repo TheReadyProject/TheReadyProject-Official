@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5R5NHZ5CCM"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TheReadyProject</title>
@@ -9,34 +8,33 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    AOS.init();
-  });
-</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init();
+        });
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css">
 
-<link rel="manifest" href="manifest.json">
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-        console.log('ServiceWorker registrado com sucesso com escopo: ', registration.scope);
-      }, function(err) {
-        console.log('Falha ao registrar ServiceWorker: ', err);
-      });
-    });
-  }
-</script>
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registrado com sucesso com escopo: ', registration.scope);
+                }, function(err) {
+                    console.log('Falha ao registrar ServiceWorker: ', err);
+                });
+            });
+        }
+    </script>
 
     <!-- Open Graph meta tags -->
     <meta property="og:title" content="TheReadyProject">
@@ -295,7 +293,7 @@
 
     <div class="login-page">
         <div class="login-form show">
-            <h2 id="login-title">Entrar</h2>
+            <h2 id="login-title" class="animate__animated animate__fadeInDown">Entrar</h2>
             <form id="login-form">
                 <div class="form-group">
                     <input type="text" id="username" placeholder="Nome de usuário" class="form-control" autocomplete="off">
@@ -304,7 +302,6 @@
                 <footer>
                     Ao acessar o site, você concorda com os <a href="https://github.com/TheReadyProject/TheReadyProject-Official/blob/main/SECURITY.md" target="_blank">termos e condições</a>.
                 </footer>
-
                 <button id="login-btn" type="submit" data-link="content/choice-form">Entrar</button>
                 <div id="login-error" class="message"></div>
             </form>
@@ -331,33 +328,31 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const loginForm = document.getElementById('login-form');
-            const loginError = document.getElementById('login-error');
-            const loginBtn = document.getElementById('login-btn');
-            const brightnessControl = document.getElementById('brightness');
-            const settingsToggle = document.querySelector('.settings-toggle img');
-            const header = document.querySelector('.header');
-            const body = document.body;
+        $(document).ready(function() {
+            const loginForm = $('#login-form');
+            const loginError = $('#login-error');
+            const loginBtn = $('#login-btn');
+            const brightnessControl = $('#brightness');
+            const settingsToggle = $('.settings-toggle img');
+            const header = $('.header');
+            const body = $('body');
 
-            loginForm.addEventListener('submit', function(event) {
+            loginForm.on('submit', function(event) {
                 event.preventDefault();
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
+                const username = $('#username').val();
+                const password = $('#password').val();
 
                 if (username === 'Aluno' && password === 'Aluno') {
-                    loginError.textContent = '';
-                    loginError.style.display = 'none'; // Ocultar a mensagem de erro
-                    const link = loginBtn.getAttribute('data-link');
+                    loginError.slideUp();
+                    const link = loginBtn.data('link');
                     setCookie('username', username, 30);
                     window.location.href = link;
                 } else {
-                    loginError.innerHTML = 'Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>';
-                    loginError.style.display = 'block'; // Exibir a mensagem de erro
+                    loginError.html('Nome de usuário ou senha incorretos<br><span style="font-size: 12px;">(Dica: use "Aluno" para ambos)</span>').slideDown();
                 }
             });
 
-            loginForm.addEventListener('keydown', function(event) {
+            loginForm.on('keydown', function(event) {
                 if (event.key === 'Enter') {
                     loginBtn.click();
                 }
@@ -365,39 +360,35 @@
 
             const cookiesAccepted = getCookie('cookiesAccepted');
             if (cookiesAccepted) {
-                // Se os cookies foram aceitos, ative automaticamente a opção "Lembrar-me"
-                document.getElementById('username').value = getCookie('username') || '';
+                $('#username').val(getCookie('username') || '');
             }
 
-            var links = document.getElementsByTagName('a');
-            for (var i = 0; i < links.length; i++) {
-                var href = links[i].getAttribute('href');
+            var links = $('a');
+            links.each(function() {
+                var href = $(this).attr('href');
                 if (href && href.endsWith('.html')) {
-                    links[i].setAttribute('href', href.slice(0, -5));
+                    $(this).attr('href', href.slice(0, -5));
                 }
-            }
+            });
 
-            const cookieModal = new bootstrap.Modal(document.getElementById('cookieModal'));
-            const acceptCookiesBtn = document.getElementById('accept-cookies');
+            const cookieModal = new bootstrap.Modal($('#cookieModal'));
+            const acceptCookiesBtn = $('#accept-cookies');
 
-            // Mostrar modal de cookies ao carregar a página
             if (!cookiesAccepted) {
                 cookieModal.show();
             }
 
-            acceptCookiesBtn.addEventListener('click', function() {
+            acceptCookiesBtn.on('click', function() {
                 cookieModal.hide();
                 setCookie('cookiesAccepted', 'true', 30);
             });
 
-            // Controle de brilho
-            brightnessControl.addEventListener('input', function() {
-                body.style.filter = `brightness(${brightnessControl.value})`;
+            brightnessControl.on('input', function() {
+                body.css('filter', `brightness(${brightnessControl.val()})`);
             });
 
-            // Alternar menu de configurações
-            settingsToggle.addEventListener('click', function() {
-                header.classList.toggle('expanded');
+            settingsToggle.on('click', function() {
+                header.toggleClass('expanded');
             });
 
             function setCookie(name, value, days) {
