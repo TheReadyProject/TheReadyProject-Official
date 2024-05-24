@@ -6,7 +6,7 @@ self.addEventListener('install', function(event) {
         '/index.html',
         '/assets/icon.png',
         '/assets/Predios.jpg',
-        '/assets/settings_icon.png',
+        '/assets/settingsIcon2.png',
         '/assets/github.png',
         '/style.css',
         '/bootstrap.min.css',
