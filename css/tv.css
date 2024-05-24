@@ -21,7 +21,7 @@ body {
     width: 0%;
 } */
 
-.content-page {
+.container {
     max-width: 800px;
     margin: 20px auto;
     padding: 0 20px;
