@@ -2,7 +2,7 @@
 
 Por favor, leia atentamente as seguintes informações antes de interagir com o projeto "TheReadyProject" no GitHub.
 
-## Termos e Condições de Uso
+### Termos e Condições de Uso
 
 Ao acessar ou contribuir para o projeto "TheReadyProject", você concorda em ficar vinculado aos termos e condições descritos abaixo. Se você não concordar com algum destes termos, evite interagir com este projeto.
 
@@ -24,9 +24,23 @@ Ao acessar ou contribuir para o projeto "TheReadyProject", você concorda em fic
 
 9. **Lei Aplicável**: Estes termos e condições são regidos e interpretados de acordo com as leis do Brasil, sem consideração a seus conflitos de disposições legais.
 
-Ao acessar ou contribuir para o projeto "TheReadyProject", você concorda em ficar vinculado a estes termos e condições.
+### Política de Contribuição e Segurança
 
-## Licença MIT
+Ao enviar cursos ou quaisquer contribuições para o projeto "TheReadyProject", você deve estar ciente e de acordo com os seguintes termos específicos:
+
+1. **Recompensas e Reconhecimento**: A única recompensa pelo envio de cursos ou contribuições será a inclusão de sua conta do GitHub no arquivo [CONTRIBUTORS.md](https://github.com/TheReadyProject/TheReadyProject-Official/blob/main/CONTRIBUTORS.md). Não serão oferecidas compensações financeiras, incluindo quaisquer ganhos provenientes do Patreon ou outras fontes de financiamento.
+
+2. **Obrigatoriedade de Informações**: Para que seu nome seja incluído no arquivo CONTRIBUTORS.md, você deve enviar o link para sua conta do GitHub no mesmo email em que submeter seu curso ou contribuição. Se você não fornecer esta informação no email inicial, "TheReadyProject" não é obrigado a adicionar seu nome posteriormente.
+
+3. **Originalidade e Direitos Autorais**: Ao enviar cursos ou contribuições, você declara que possui os direitos autorais sobre o material ou que tem permissão para utilizá-lo e compartilhá-lo. Quaisquer violação de direitos autorais será de sua exclusiva responsabilidade.
+
+4. **Conteúdo Apropriado**: As contribuições devem ser apropriadas para todos os públicos e não devem conter material ofensivo, ilegal ou inapropriado. Reservamo-nos o direito de rejeitar qualquer contribuição que não atenda a esses critérios.
+
+5. **Segurança de Dados**: Ao enviar seu email, nome e link do GitHub, você consente com a coleta e armazenamento dessas informações para fins de reconhecimento e gerenciamento de contribuições.
+
+6. **Comunicação**: Qualquer comunicação adicional ou necessidade de esclarecimento deve ser feita através do email oficial fornecido no site "TheReadyProject". Não garantimos resposta a mensagens enviadas por outros meios.
+
+### Licença MIT
 
 Este projeto está licenciado sob a Licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter detalhes adicionais.
 
