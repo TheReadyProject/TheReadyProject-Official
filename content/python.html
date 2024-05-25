@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Python</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #311502, #784212, #855429);
+            min-height: 100vh;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+        h1, h2, h3, h4 {
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 15px;
+        }
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        p, pre {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        code {
+            background: #222;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        pre {
+            background: #222;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .btn {
+            background-color: #f39c12;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover {
+            background-color: #e67e22;
+        }
+        .resolution {
+            display: none;
+            margin-top: 20px;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <h1>Curso de Programação em Python</h1>
+        
+        <!-- Módulo 1 -->
+        <h2>1. Python</h2>
+        <h3>Módulo 1: Fundamentos de Python</h3>
+        <h4>Aula 1: Introdução e Configuração do Ambiente</h4>
+        <p><strong>Objetivo:</strong> Introduzir o Python e configurar o ambiente de desenvolvimento.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>O que é Python e suas aplicações:</strong></p>
+        <p>Python é uma linguagem de programação de alto nível, interpretada e de propósito geral. Criada por Guido van Rossum e lançada em 1991, Python é conhecida por sua sintaxe simples e legível, o que a torna ideal para iniciantes. Python é amplamente utilizada em desenvolvimento web, automação de scripts, análise de dados, inteligência artificial, desenvolvimento de jogos e muito mais.</p>
+        <p><strong>Instalando Python (Windows, macOS, Linux):</strong></p>
+        <p><strong>Windows:</strong></p>
+        <ol>
+            <li>Acesse o site oficial do Python: <a href="https://www.python.org/" target="_blank">python.org</a>.</li>
+            <li>Baixe o instalador apropriado para Windows.</li>
+            <li>Execute o instalador e certifique-se de marcar a opção "Add Python to PATH".</li>
+            <li>Conclua a instalação.</li>
+        </ol>
+        <p><strong>macOS:</strong></p>
+        <ol>
+            <li>Acesse o site oficial do Python.</li>
+            <li>Baixe o instalador apropriado para macOS.</li>
+            <li>Execute o instalador e siga as instruções na tela.</li>
+        </ol>
+        <p><strong>Linux:</strong></p>
+        <pre><code>sudo apt update
+sudo apt install python3</code></pre>
+        <p><strong>Configuração do ambiente de desenvolvimento (IDEs recomendadas: VS Code, PyCharm):</strong></p>
+        <p><strong>VS Code:</strong></p>
+        <ol>
+            <li>Baixe e instale o Visual Studio Code: <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a>.</li>
+            <li>Instale a extensão Python: Vá para a aba Extensões (Ctrl+Shift+X) e procure por "Python".</li>
+        </ol>
+        <p><strong>PyCharm:</strong></p>
+        <ol>
+            <li>Baixe e instale o PyCharm: <a href="https://www.jetbrains.com/pycharm/" target="_blank">jetbrains.com/pycharm</a>.</li>
+            <li>Configure um novo projeto Python.</li>
+        </ol>
+        <p><strong>Primeiro programa: "Hello, World!":</strong></p>
+        <pre><code>print("Hello, World!")</code></pre>
+        
+        <h4>Aula 2: Variáveis e Tipos de Dados</h4>
+        <p><strong>Objetivo:</strong> Compreender variáveis e tipos de dados em Python.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Variáveis: definição e convenções de nomenclatura:</strong></p>
+        <p>Variáveis são espaços na memória do computador onde podemos armazenar dados. Em Python, não é necessário declarar o tipo de uma variável, pois a linguagem é dinamicamente tipada.</p>
+        <pre><code>nome = "Alice"
+idade = 30</code></pre>
+        <p>Convenções de nomenclatura:</p>
+        <ul>
+            <li>Use nomes descritivos.</li>
+            <li>Utilize letras minúsculas e underscores para separar palavras (snake_case).</li>
+        </ul>
+        <p><strong>Tipos de dados básicos: inteiros, floats, strings, booleanos:</strong></p>
+        <pre><code>num = 10  # Inteiro
+pi = 3.14  # Float
+saudacao = "Olá, Mundo!"  # String
+is_student = True  # Booleano</code></pre>
+        <p><strong>Operações básicas com variáveis:</strong></p>
+        <pre><code>soma = 10 + 5  # Aritmética
+maior = 10 > 5  # Comparação</code></pre>
+        <p><strong>Função `type()` e conversão de tipos:</strong></p>
+        <pre><code>print(type(nome))  # Saída: <class 'str'>
+num_str = "123"
+num_int = int(num_str)</code></pre>
+        
+        <h4>Aula 3: Estruturas de Controle (if, else, elif)</h4>
+        <p><strong>Objetivo:</strong> Aprender a utilizar estruturas de controle de fluxo.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Estruturas condicionais: `if`, `else`, `elif`:</strong></p>
+        <pre><code>if idade >= 18:
+    print("Você é maior de idade.")
+elif idade > 12:
+    print("Você é adolescente.")
+else:
+    print("Você é criança.")</code></pre>
+        <p><strong>Exemplos práticos:</strong></p>
+        <pre><code>numero = 7
+if numero % 2 == 0:
+    print("O número é par.")
+else:
+    print("O número é ímpar.")</code></pre>
+        <p><strong>Operadores de comparação e lógicos:</strong></p>
+        <pre><code>idade = 20
+if idade >= 18 and idade < 65:
+    print("Você é um adulto.")</code></pre>
+        
+        <h4>Atividade:</h4>
+        <p>Criação de um script simples que solicita ao usuário um número e verifica se ele é positivo, negativo ou zero.</p>
+        <pre><code>numero = float(input("Digite um número: "))
+if numero > 0:
+    print("O número é positivo.")
+elif numero < 0:
+    print("O número é negativo.")
+else:
+    print("O número é zero.")</code></pre>
+
+        <!-- Módulo 2 -->
+        <h3>Módulo 2: Estruturas de Dados</h3>
+        <h4>Aula 1: Listas, Tuplas e Dicionários</h4>
+        <p><strong>Objetivo:</strong> Compreender e utilizar listas, tuplas e dicionários.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Listas:</strong></p>
+        <pre><code>frutas = ['maçã', 'banana', 'laranja']
+print(frutas[0])  # Saída: maçã</code></pre>
+        <p><strong>Operações com listas:</strong></p>
+        <pre><code>frutas.append('morango')  # Adiciona um elemento ao final da lista
+frutas.remove('banana')  # Remove um elemento da lista</code></pre>
+        <p><strong>Tuplas:</strong></p>
+        <pre><code>ponto = (10, 20)
+x, y = ponto  # Desempacotamento de tupla</code></pre>
+        <p><strong>Características:</strong></p>
+        <ul>
+            <li>Imutáveis</li>
+            <li>Usadas para armazenar dados heterogêneos</li>
+        </ul>
+        <p><strong>Dicionários:</strong></p>
+        <pre><code>dados_aluno = {'nome': 'João', 'idade': 25, 'curso': 'Engenharia'}
+print(dados_aluno['idade'])  # Saída: 25</code></pre>
+        <p><strong>Operações com dicionários:</strong></p>
+        <pre><code>dados_aluno['idade'] = 26  # Atualiza o valor de uma chave
+dados_aluno.pop('curso')  # Remove um par chave-valor</code></pre>
+        
+        <h4>Atividade:</h4>
+        <p>Criação de um programa que gerencia uma lista de tarefas, permitindo adicionar, remover e visualizar itens.</p>
+        <pre><code>tarefas = []
+
+while True:
+    print("\nLista de Tarefas:")
+    for tarefa in tarefas:
+        print(f"- {tarefa}")
+
+    print("\nOpções:")
+    print("1. Adicionar tarefa")
+    print("2. Remover tarefa")
+    print("3. Sair")
+
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        tarefa = input("Digite a tarefa: ")
+        tarefas.append(tarefa)
+    elif opcao == "2":
+        tarefa = input("Digite a tarefa a remover: ")
+        if tarefa in tarefas:
+            tarefas.remove(tarefa)
+        else:
+            print("Tarefa não encontrada.")
+    elif opcao == "3":
+        break
+    else:
+        print("Opção inválida.")</code></pre>
+
+        <!-- Módulo 3 -->
+        <h3>Módulo 3: Funções e Módulos</h3>
+        <h4>Aula 1: Definição de Funções</h4>
+        <p><strong>Objetivo:</strong> Aprender a criar e utilizar funções em Python.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Definição e chamada de funções:</strong></p>
+        <pre><code>def saudacao(nome):
+    print(f"Olá, {nome}!")
+
+saudacao("Alice")  # Saída: Olá, Alice!</code></pre>
+        <p><strong>Argumentos e parâmetros:</strong></p>
+        <pre><code>def soma(a, b):
+    return a + b
+
+resultado = soma(3, 5)
+print(resultado)  # Saída: 8</code></pre>
+        <p><strong>Parâmetros padrão e argumentos nomeados:</strong></p>
+        <pre><code>def saudacao(nome="Visitante"):
+    print(f"Olá, {nome}!")
+
+saudacao()  # Saída: Olá, Visitante!
+saudacao("Alice")  # Saída: Olá, Alice!</code></pre>
+
+        <h4>Aula 2: Módulos e Pacotes</h4>
+        <p><strong>Objetivo:</strong> Aprender a organizar código em módulos e pacotes.</p>
+        <p><strong>Importação de módulos:</strong></p>
+        <pre><code>import math
+print(math.sqrt(16))  # Saída: 4.0</code></pre>
+        <p><strong>Criação e importação de módulos personalizados:</strong></p>
+        <pre><code># No arquivo meu_modulo.py
+def saudacao(nome):
+    print(f"Olá, {nome}!")
+
+# No arquivo principal
+import meu_modulo
+
+meu_modulo.saudacao("Alice")  # Saída: Olá, Alice!</code></pre>
+        <p><strong>Pacotes:</strong></p>
+        <pre><code># Estrutura de diretórios
+# meu_pacote/
+# ├── __init__.py
+# ├── modulo1.py
+# └── modulo2.py
+
+# No arquivo __init__.py
+from .modulo1 import funcao1
+from .modulo2 import funcao2</code></pre>
+        
+        <h4>Atividade:</h4>
+        <p>Criação de um módulo personalizado que contém funções para operações matemáticas básicas (soma, subtração, multiplicação, divisão) e um programa que utiliza essas funções.</p>
+        <pre><code># No arquivo operacoes.py
+def soma(a, b):
+    return a + b
+
+def subtracao(a, b):
+    return a - b
+
+def multiplicacao(a, b):
+    return a * b
+
+def divisao(a, b):
+    if b != 0:
+        return a / b
+    else:
+        return "Divisão por zero não é permitida"
+
+# No arquivo principal
+import operacoes
+
+print(operacoes.soma(3, 5))         # Saída: 8
+print(operacoes.subtracao(10, 2))   # Saída: 8
+print(operacoes.multiplicacao(4, 6))# Saída: 24
+print(operacoes.divisao(20, 4))     # Saída: 5.0</code></pre>
+
+</body>
+</html>
