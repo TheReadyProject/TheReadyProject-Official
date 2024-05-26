@@ -119,6 +119,13 @@
           window.location.href = 'python.html';
         });
 
+            var links = document.getElementsByTagName('a');
+            for (var i = 0; i < links.length; i++) {
+                var href = links[i].getAttribute('href');
+                if (href && href.endsWith('.html')) {
+                    links[i].setAttribute('href', href.slice(0, -5));
+                }
+            }
         cppBtn.addEventListener('click', function() {
           window.location.href = 'cpp.html';
         });
