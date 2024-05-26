@@ -94,6 +94,8 @@ h2 {
     <div class="choice-form">
       <h2>Escolha uma Área</h2>
       <button id="python-btn">Python</button>
+      <button id="cpp-btn">C++</button>
+      <button id="java-btn">Java</button>
       <button id="send-course-btn">Envie seu Curso</button>
       
       <div id="mensagem">
@@ -106,13 +108,23 @@ h2 {
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const pythonBtn = document.getElementById('python-btn');
+        const pythonBtn = document.getElementById('cpp-btn');
+        const pythonBtn = document.getElementById('java-btn');
         const sendCourseBtn = document.getElementById('send-course-btn');
         const mensagem = document.getElementById('mensagem');
         const enviarBtn = document.getElementById('enviar-btn');
 
-        // Redirecionar para o curso de Python
+        // Redirecionar para o cursos
         pythonBtn.addEventListener('click', function() {
           window.location.href = 'python.html';
+        });
+       
+        pythonBtn.addEventListener('click', function() {
+          window.location.href = 'cpp.html';
+        });
+
+        pythonBtn.addEventListener('click', function() {
+          window.location.href = 'java.html';
         });
 
         // Mostrar mensagem e botão enviar
