@@ -6,89 +6,89 @@
     <link rel="icon" href="../assets/icon.png" />
     <title>TheReadyProject</title>
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom right, #311502, #784212, #855429);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom right, #311502, #784212, #855429);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
 
-.choice-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  width: 360px;
-  background-color: #efefef;
-  border-radius: 8px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
-  text-align: center;
-  padding: 20px;
-}
+      .choice-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 360px;
+        background-color: #efefef;
+        border-radius: 8px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
+        text-align: center;
+        padding: 20px;
+      }
 
-.choice-form button {
-  width: calc(100% - 22px);
-  padding: 15px;
-  margin-bottom: 10px;
-  border: none;
-  background-color: #444;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
+      .choice-form button {
+        width: calc(100% - 22px);
+        padding: 15px;
+        margin-bottom: 10px;
+        border: none;
+        background-color: #444;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
 
-button:hover {
-  background-color: #5f5f5f;
-}
+      .choice-form button:hover {
+        background-color: #5f5f5f;
+      }
 
-h2 {
-  font-size: 30px;
-  color: #282828;
-}
+      h2 {
+        font-size: 30px;
+        color: #282828;
+      }
 
-#mensagem {
-  display: none;
-  margin-top: 20px;
-  color: #444;
-  background: none;
-  padding: 0;
-  border: none;
-  font-size: 16px;
-  cursor: default;
-  border-radius: 0;
-  text-align: center;
-}
+      #mensagem {
+        display: none;
+        margin-top: 20px;
+        color: #444;
+        background: none;
+        padding: 0;
+        border: none;
+        font-size: 16px;
+        cursor: default;
+        border-radius: 0;
+        text-align: center;
+      }
 
-#mensagem a {
-  color: #f39c12;
-}
+      #mensagem a {
+        color: #f39c12;
+      }
 
-#enviar-btn {
-  display: none;
-  margin-top: 20px;
-  color: #fff;
-  background-color: #444;
-  padding: 15px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
+      #enviar-btn {
+        display: none;
+        margin-top: 20px;
+        color: #fff;
+        background-color: #444;
+        padding: 15px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
 
-#enviar-btn:hover {
-  background-color: #5f5f5f;
-}
-</style>
+      #enviar-btn:hover {
+        background-color: #5f5f5f;
+      }
+    </style>
   </head>
   <body>
     <div class="choice-form">
@@ -106,42 +106,39 @@ h2 {
     </div>
 
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const pythonBtn = document.getElementById('python-btn');
-  const cppBtn = document.getElementById('cpp-btn');
-  const javaBtn = document.getElementById('java-btn');
-  const sendCourseBtn = document.getElementById('send-course-btn');
-  const mensagem = document.getElementById('mensagem');
-  const enviarBtn = document.getElementById('enviar-btn');
+      document.addEventListener('DOMContentLoaded', function() {
+        const pythonBtn = document.getElementById('python-btn');
+        const cppBtn = document.getElementById('cpp-btn');
+        const javaBtn = document.getElementById('java-btn');
+        const sendCourseBtn = document.getElementById('send-course-btn');
+        const mensagem = document.getElementById('mensagem');
+        const enviarBtn = document.getElementById('enviar-btn');
 
-  // Redirecionar para o cursos
-  pythonBtn.addEventListener('click', function() {
-    window.location.href = 'python.html';
-  });
+        // Redirecionar para o cursos
+        pythonBtn.addEventListener('click', function() {
+          window.location.href = 'python.html';
+        });
 
-  cppBtn.addEventListener('click', function() {
-    window.location.href = 'cpp.html';
-  });
+        cppBtn.addEventListener('click', function() {
+          window.location.href = 'cpp.html';
+        });
 
-  javaBtn.addEventListener('click', function() {
-    window.location.href = 'java.html';
-  });
+        javaBtn.addEventListener('click', function() {
+          window.location.href = 'java.html';
+        });
 
-  // Mostrar mensagem e botão enviar
-  sendCourseBtn.addEventListener('click', function() {
-    mensagem.style.display = 'block';
-    enviarBtn.style.display = 'block';
-  });
+        // Mostrar mensagem e botão enviar
+        sendCourseBtn.addEventListener('click', function() {
+          mensagem.style.display = 'block';
+          enviarBtn.style.display = 'block';
+        });
 
-  // Enviar email automaticamente
-  enviarBtn.addEventListener('click', function() {
-    const emailLink = 'mailto:codelong@proton.me?subject=Envio%20de%20Curso&body=Envio%20meu%20curso%20HTML%20e%20GitHub%20conforme%20instruções%20no%20site.';
-    window.location.href = emailLink;
-  });
-});
-
+        // Enviar email automaticamente
+        enviarBtn.addEventListener('click', function() {
+          const emailLink = 'mailto:codelong@proton.me?subject=Envio%20de%20Curso&body=Envio%20meu%20curso%20HTML%20e%20GitHub%20conforme%20instruções%20no%20site.';
+          window.location.href = emailLink;
+        });
+      });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
