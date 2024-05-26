@@ -438,5 +438,14 @@ int main() {
     return 0;
 }</code></pre>
     </div>
+ <script>
+     var links = document.getElementsByTagName('a');
+     for (var i = 0; i < links.length; i++) {
+        var href = links[i].getAttribute('href');
+        if (href && href.endsWith('.html')) {
+        links[i].setAttribute('href', href.slice(0, -5));
+                }
+            }
+ </script>
 </body>
 </html>
