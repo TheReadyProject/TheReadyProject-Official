@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de C++</title>
+    <link rel="icon" href="../assets/icon.png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #002366, #004080, #0059b3);
+            min-height: 100vh;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+        h1, h2, h3, h4 {
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 15px;
+        }
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        p, pre {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        code {
+            background: #222;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        pre {
+            background: #222;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .btn {
+            background-color: #f39c12;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover {
+            background-color: #e67e22;
+        }
+        .resolution {
+            display: none;
+            margin-top: 20px;
+        }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Curso de C++</h1>
+
+        <!-- Módulo 1 -->
+        <h2>Módulo 1: Introdução ao C++</h2>
+        <h3>Aula 1: Introdução e Configuração</h3>
+        <p><strong>Objetivo:</strong> Familiarizar-se com a linguagem C++ e configurar o ambiente de desenvolvimento.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Instalação do compilador e IDE:</strong> Use MinGW para Windows ou g++ no Linux/Mac.</p>
+        <p><strong>Primeiro programa em C++:</strong></p>
+        <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Olá, mundo!" &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
+
+        <h3>Aula 2: Sintaxe Básica</h3>
+        <p><strong>Objetivo:</strong> Compreender a sintaxe básica do C++.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Tipos de dados:</strong></p>
+        <pre><code>int idade = 25;
+double altura = 1.75;
+char inicial = 'A';
+std::string nome = "Alice";</code></pre>
+        <p><strong>Estruturas de controle:</strong></p>
+        <pre><code>int numero = 10;
+
+if (numero &gt; 0) {
+    std::cout &lt;&lt; "O número é positivo." &lt;&lt; std::endl;
+} else if (numero &lt; 0) {
+    std::cout &lt;&lt; "O número é negativo." &lt;&lt; std::endl;
+} else {
+    std::cout &lt;&lt; "O número é zero." &lt;&lt; std::endl;
+}</code></pre>
+        <p><strong>Laços de repetição:</strong></p>
+        <pre><code>for (int i = 0; i &lt; 5; i++) {
+    std::cout &lt;&lt; "Iteração: " &lt;&lt; i &lt;&lt; std::endl;
+}</code></pre>
+
+        <h4>Atividade:</h4>
+        <p>Criação de um programa que leia um número do usuário e informe se é par ou ímpar.</p>
+        <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int numero;
+    std::cout &lt;&lt; "Digite um número: ";
+    std::cin &gt;&gt; numero;
+    
+    if (numero % 2 == 0) {
+        std::cout &lt;&lt; "O número é par." &lt;&lt; std::endl;
+    } else {
+        std::cout &lt;&lt; "O número é ímpar." &lt;&lt; std::endl;
+    }
+    
+    return 0;
+}</code></pre>
+
+        <!-- Módulo 2 -->
+        <h3>Módulo 2: Estruturas de Dados</h3>
+        <h4>Aula 1: Arrays e Vetores</h4>
+        <p><strong>Objetivo:</strong> Compreender e utilizar arrays e vetores em C++.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Arrays:</strong></p>
+        <pre><code>int numeros[5] = {1, 2, 3, 4, 5};
+std::cout &lt;&lt; numeros[0] &lt;&lt; std::endl;  // Saída: 1</code></pre>
+        <p><strong>Vetores (std::vector):</strong></p>
+        <pre><code>#include &lt;vector&gt;
+#include &lt;iostream&gt;
+
+int main() {
+    std::vector&lt;int&gt; numeros = {1, 2, 3, 4, 5};
+    std::cout &lt;&lt; numeros[0] &lt;&lt; std::endl;  // Saída: 1
+    numeros.push_back(6);
+    std::cout &lt;&lt; numeros[5] &lt;&lt; std::endl;  // Saída: 6
+    return 0;
+}</code></pre>
+
+        <h4>Atividade:</h4>
+        <p>Criação de um programa que gerencia uma lista de compras, permitindo adicionar, remover e visualizar itens.</p>
+        <pre><code>#include &lt;vector&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::vector&lt;std::string&gt; listaCompras;
+    std::string item;
+    int opcao;
+    
+    do {
+        std::cout &lt;&lt; "\nLista de Compras:" &lt;&lt; std::endl;
+        for (const auto& i : listaCompras) {
+            std::cout &lt;&lt; "- " &lt;&lt; i &lt;&lt; std::endl;
+        }
+        
+        std::cout &lt;&lt; "\nOpções:" &lt;&lt; std::endl;
+        std::cout &lt;&lt; "1. Adicionar item" &lt;&lt; std::endl;
+        std::cout &lt;&lt; "2. Remover item" &lt;&lt; std::endl;
+        std::cout &lt;&lt; "3. Sair" &lt;&lt; std::endl;
+        std::cout &lt;&lt; "Escolha uma opção: ";
+        std::cin &gt;&gt; opcao;
+        
+        std::cin.ignore();  // Limpar buffer do \n
+        
+        if (opcao == 1) {
+            std::cout &lt;&lt; "Digite o item: ";
+            std::getline(std::cin, item);
+            listaCompras.push_back(item);
+        } else if (opcao == 2) {
+            std::cout &lt;&lt; "Digite o item a remover: ";
+            std::getline(std::cin, item);
+            auto it = std::find(listaCompras.begin(), listaCompras.end(), item);
+            if (it != listaCompras.end()) {
+                listaCompras.erase(it);
+            } else {
+                std::cout &lt;&lt; "Item não encontrado." &lt;&lt; std::endl;
+            }
+        } else if (opcao != 3) {
+            std::cout &lt;&lt; "Opção inválida." &lt;&lt; std::endl;
+        }
+    } while (opcao != 3);
+
+    return 0;
+}</code></pre>
+
+        <!-- Módulo 3 -->
+        <h3>Módulo 3: Funções e Procedimentos</h3>
+        <h4>Aula 1: Definição de Funções</h4>
+        <p><strong>Objetivo:</strong> Aprender a criar e utilizar funções em C++.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Definição e chamada de funções:</strong></p>
+        <pre><code>#include &lt;iostream&gt;
+
+void saudacao(std::string nome) {
+    std::cout &lt;&lt; "Olá, " &lt;&lt; nome &lt;&lt; "!" &lt;&lt; std::endl;
+}
+
+int main() {
+    saudacao("Alice");
+    return 0;
+}</code></pre>
+        <p><strong>Funções com retorno:</strong></p>
+        <pre><code>#include &lt;iostream&gt;
+
+int soma(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int resultado = soma(5, 3);
+    std::cout &lt;&lt; "Resultado: " &lt;&lt; resultado &lt;&lt; std::endl;  // Saída: Resultado: 8
+    return 0;
+}</code></pre>
+        <p><strong>Funções com múltiplos parâmetros:</strong></p>
+        <pre><code>#include &lt;iostream&gt;
+
+void imprimirDados(std::string nome, int idade) {
+    std::cout &lt;&lt; "Nome: " &lt;&lt; nome &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Idade: " &lt;&lt; idade &lt;&lt; std::endl;
+}
+
+int main() {
+    imprimirDados("Alice", 30);
+    return 0;
+}</code></pre>
+
+        <h4>Atividade:</h4>
+        <p>Criação de uma calculadora simples com funções para adição, subtração, multiplicação e divisão.</p>
+        <pre><code>#include &lt;iostream&gt;
+
+int adicionar(int a, int b) {
+    return a + b;
+}
+
+int subtrair(int a, int b) {
+    return a - b;
+}
+
+int multiplicar(int a, int b) {
+    return a * b;
+}
+
+double dividir(int a, int b) {
+    if (b == 0) {
+        throw std::invalid_argument("Divisão por zero não permitida");
+    }
+    return static_cast&lt;double&gt;(a) / b;
+}
+
+int main() {
+    int num1, num2, escolha;
+    
+    std::cout &lt;&lt; "Digite o primeiro número: ";
+    std::cin &gt;&gt; num1;
+    std::cout &lt;&lt; "Digite o segundo número: ";
+    std::cin &gt;&gt; num2;
+    
+    std::cout &lt;&lt; "Escolha a operação:" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "1. Adição" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "2. Subtração" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "3. Multiplicação" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "4. Divisão" &lt;&lt; std::endl;
+    std::cin &gt;&gt; escolha;
+    
+    try {
+        switch (escolha) {
+            case 1:
+                std::cout &lt;&lt; "Resultado: " &lt;&lt; adicionar(num1, num2) &lt;&lt; std::endl;
+                break;
+            case 2:
+                std::cout &lt;&lt; "Resultado: " &lt;&lt; subtrair(num1, num2) &lt;&lt; std::endl;
+                break;
+            case 3:
+                std::cout &lt;&lt; "Resultado: " &lt;&lt; multiplicar(num1, num2) &lt;&lt; std::endl;
+                break;
+            case 4:
+                std::cout &lt;&lt; "Resultado: " &lt;&lt; dividir(num1, num2) &lt;&lt; std::endl;
+                break;
+            default:
+                std::cout &lt;&lt; "Operação inválida." &lt;&lt; std::endl;
+        }
+    } catch (const std::invalid_argument& e) {
+        std::cerr &lt;&lt; e.what() &lt;&lt; std::endl;
+    }
+    
+    return 0;
+}</code></pre>
+
+        <!-- Módulo 4 -->
+        <h3>Módulo 4: Programação Orientada a Objetos (POO)</h3>
+        <h4>Aula 1: Conceitos Básicos de POO</h4>
+        <p><strong>Objetivo:</strong> Introduzir os conceitos de POO em C++.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Classes e Objetos:</strong></p>
+        <pre><code>#include &lt;iostream&gt;
+
+class Pessoa {
+public:
+    std::string nome;
+    int idade;
+
+    void apresentar() {
+        std::cout &lt;&lt; "Olá, meu nome é " &lt;&lt; nome &lt;&lt; " e tenho " &lt;&lt; idade &lt;&lt; " anos." &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Pessoa pessoa;
+    pessoa.nome = "Alice";
+    pessoa.idade = 30;
+    pessoa.apresentar();
+    return 0;
+}</code></pre>
+        <p><strong>Construtores:</strong></p>
+        <pre><code>#include &lt;iostream&gt;
+
+class Pessoa {
+public:
+    std::string nome;
+    int idade;
+
+    Pessoa(std::string n, int i) : nome(n), idade(i) {}
+
+    void apresentar() {
+        std::cout &lt;&lt; "Olá, meu nome é " &lt;&lt; nome &lt;&lt; " e tenho " &lt;&lt; idade &lt;&lt; " anos." &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Pessoa pessoa("Alice", 30);
+    pessoa.apresentar();
+    return 0;
+}</code></pre>
+        <p><strong>Encapsulamento:</strong></p>
+        <pre><code>#include &lt;iostream&gt;
+
+class Pessoa {
+private:
+    std::string nome;
+    int idade;
+
+public:
+    Pessoa(std::string n, int i) : nome(n), idade(i) {}
+
+    std::string getNome() {
+        return nome;
+    }
+
+    void setNome(std::string n) {
+        nome = n;
+    }
+
+    int getIdade() {
+        return idade;
+    }
+
+    void setIdade(int i) {
+        idade = i;
+    }
+
+    void apresentar() {
+        std::cout &lt;&lt; "Olá, meu nome é " &lt;&lt; nome &lt;&lt; " e tenho " &lt;&lt; idade &lt;&lt; " anos." &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Pessoa pessoa("Alice", 30);
+    pessoa.apresentar();
+    pessoa.setNome("Bob");
+    pessoa.setIdade(25);
+    pessoa.apresentar();
+    return 0;
+}</code></pre>
+
+        <h4>Atividade:</h4>
+        <p>Criação de uma classe `Carro` com atributos (marca, modelo, ano) e métodos (exibir informações, acelerar, frear).</p>
+        <pre><code>#include &lt;iostream&gt;
+
+class Carro {
+private:
+    std::string marca;
+    std::string modelo;
+    int ano;
+
+public:
+    Carro(std::string m, std::string mo, int a) : marca(m), modelo(mo), ano(a) {}
+
+    void exibirInformacoes() {
+        std::cout &lt;&lt; "Marca: " &lt;&lt; marca &lt;&lt; ", Modelo: " &lt;&lt; modelo &lt;&lt; ", Ano: " &lt;&lt; ano &lt;&lt; std::endl;
+    }
+
+    void acelerar() {
+        std::cout &lt;&lt; "O carro está acelerando." &lt;&lt; std::endl;
+    }
+
+    void frear() {
+        std::cout &lt;&lt; "O carro está freando." &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Carro carro("Toyota", "Corolla", 2020);
+    carro.exibirInformacoes();
+    carro.acelerar();
+    carro.frear();
+    return 0;
+}</code></pre>
+    </div>
+</body>
+</html>
