@@ -53,9 +53,6 @@
     "LICENSE": "MIT"
   },
   "scripts": {
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
     "lint": "echo 'No linting configured yet'"
   },
   "devDependencies": {
