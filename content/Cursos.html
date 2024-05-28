@@ -96,6 +96,9 @@
       <button id="python-btn">Python</button>
       <button id="cpp-btn">C++</button>
       <button id="java-btn">Java</button>
+      <button id="cs-btn">C#</button>
+      <button id="JS-btn">JavaScript</button>
+      <button id="SQL-btn">SQL</button>
       <button id="send-course-btn">Envie seu Curso</button>
       
       <div id="mensagem">
@@ -110,11 +113,14 @@
         const pythonBtn = document.getElementById('python-btn');
         const cppBtn = document.getElementById('cpp-btn');
         const javaBtn = document.getElementById('java-btn');
+        const csBtn = document.getElementById('cs-btn');
+        const JSBtn = document.getElementById('JS-btn');
+        const SQLBtn = document.getElementById('SQL-btn');
         const sendCourseBtn = document.getElementById('send-course-btn');
         const mensagem = document.getElementById('mensagem');
         const enviarBtn = document.getElementById('enviar-btn');
 
-        // Redirecionar para o cursos
+        // Redirecionar para os cursos
         pythonBtn.addEventListener('click', function() {
           window.location.href = 'python';
         });
@@ -133,6 +139,19 @@
         javaBtn.addEventListener('click', function() {
           window.location.href = 'java';
         });
+
+        SQLBtn.addEventListener('click', function() {
+          window.location.href = 'sql';
+        });
+
+        csBtn.addEventListener('click', function() {
+          window.location.href = 'CSharp';
+        });
+
+        JSBtn.addEventListener('click', function() {
+          window.location.href = 'Js';
+        });
+
 
         // Mostrar mensagem e botão enviar
         sendCourseBtn.addEventListener('click', function() {
