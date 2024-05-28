@@ -4,20 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso de JavaScript</title>
-    <link rel="icon" href="../assets/icon(JS).png"/>
+    <link rel="icon" href="../assets/icon(JavaScript).png"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { ... }
-        .container { ... }
-        h1, h2, h3, h4 { ... }
-        p, pre { ... }
-        code { ... }
-        pre { ... }
-        .btn { ... }
-        .btn:hover { ... }
-        .resolution { ... }
-        .fade-in { ... }
-        @keyframes fadeIn { ... }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2, h3, h4 {
+            color: #F0DB4F;
+        }
+        p, pre {
+            margin: 20px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #F0DB4F;
+            overflow-x: auto;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            background-color: #F0DB4F;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #dbac39;
+        }
+        .resolution {
+            margin-top: 20px;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -31,18 +74,14 @@
         <p><strong>Objetivo:</strong> Introduzir o JavaScript e configurar o ambiente de desenvolvimento.</p>
         <p><strong>Conteúdo:</strong></p>
         <p><strong>O que é JavaScript e suas aplicações:</strong></p>
-        <p>JavaScript é uma linguagem de programação de alto nível, amplamente utilizada para desenvolvimento web. Ela permite a criação de páginas web interativas, manipulação do DOM, e comunicação assíncrona com servidores.</p>
-        <p><strong>Instalando Node.js para execução de JavaScript no servidor:</strong></p>
+        <p>JavaScript é uma linguagem de programação leve, interpretada e orientada a objetos com funções de primeira classe. É mais conhecida como a linguagem de script para páginas web, mas também é usada em muitas ambientes não navegadores, como Node.js.</p>
+        <p><strong>Instalando Node.js para desenvolvimento em JavaScript:</strong></p>
         <ol>
             <li>Acesse o site oficial do Node.js: <a href="https://nodejs.org/" target="_blank">nodejs.org</a>.</li>
-            <li>Baixe e instale o instalador apropriado para o seu sistema operacional.</li>
+            <li>Baixe e instale a versão apropriada para o seu sistema operacional.</li>
         </ol>
-        <p><strong>Configuração do ambiente de desenvolvimento (IDEs recomendadas: VS Code, WebStorm):</strong></p>
-        <p><strong>VS Code:</strong></p>
-        <ol>
-            <li>Baixe e instale o Visual Studio Code: <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a>.</li>
-            <li>Instale a extensão JavaScript (ES6) code snippets.</li>
-        </ol>
+        <p><strong>Configuração do ambiente de desenvolvimento:</strong></p>
+        <p>Após a instalação, abra um terminal e verifique a instalação com os comandos <code>node -v</code> e <code>npm -v</code>.</p>
         <p><strong>Primeiro programa: "Hello, World!":</strong></p>
         <pre><code>console.log("Hello, World!");</code></pre>
         
@@ -51,7 +90,7 @@
         <p><strong>Conteúdo:</strong></p>
         <p><strong>Variáveis: definição e convenções de nomenclatura:</strong></p>
         <pre><code>let nome = "Alice";
-const idade = 30;</code></pre>
+let idade = 30;</code></pre>
         <p>Convenções de nomenclatura:</p>
         <ul>
             <li>Use nomes descritivos.</li>
@@ -96,7 +135,8 @@ if (idade >= 18 && idade < 65) {
         
         <h4>Atividade:</h4>
         <p>Criação de um script simples que solicita ao usuário um número e verifica se ele é positivo, negativo ou zero.</p>
-        <pre><code>let numero = parseFloat(prompt("Digite um número: "));
+        <pre><code>let numero = prompt("Digite um número: ");
+numero = parseFloat(numero);
 if (numero > 0) {
     console.log("O número é positivo.");
 } else if (numero < 0) {
@@ -107,25 +147,24 @@ if (numero > 0) {
 
         <!-- Módulo 2 -->
         <h3>Módulo 2: Estruturas de Dados</h3>
-        <h4>Aula 1: Arrays e Objetos</h4>
-        <p><strong>Objetivo:</strong> Compreender e utilizar arrays e objetos.</p>
+        <h4>Aula 1: Arrays, Listas e Objetos</h4>
+        <p><strong>Objetivo:</strong> Compreender e utilizar arrays, listas e objetos.</p>
         <p><strong>Conteúdo:</strong></p>
         <p><strong>Arrays:</strong></p>
-        <pre><code>let frutas = ['maçã', 'banana', 'laranja'];
+        <pre><code>let frutas = ["maçã", "banana", "laranja"];
 console.log(frutas[0]);  // Saída: maçã</code></pre>
         <p><strong>Operações com arrays:</strong></p>
-        <pre><code>frutas.push('morango');  // Adiciona um elemento ao final do array
-frutas.splice(frutas.indexOf('banana'), 1);  // Remove um elemento do array</code></pre>
+        <pre><code>frutas[2] = "morango";  // Atualiza o valor no índice 2</code></pre>
         <p><strong>Objetos:</strong></p>
-        <pre><code>let aluno = {
-    nome: 'João',
+        <pre><code>let dadosAluno = {
+    nome: "João",
     idade: 25,
-    curso: 'Engenharia'
+    curso: "Engenharia"
 };
-console.log(aluno.idade);  // Saída: 25</code></pre>
+console.log(dadosAluno.idade);  // Saída: 25</code></pre>
         <p><strong>Operações com objetos:</strong></p>
-        <pre><code>aluno.idade = 26;  // Atualiza o valor de uma propriedade
-delete aluno.curso;  // Remove uma propriedade</code></pre>
+        <pre><code>dadosAluno.idade = 26;  // Atualiza o valor de uma propriedade
+delete dadosAluno.curso;  // Remove uma propriedade</code></pre>
         
         <h4>Atividade:</h4>
         <p>Criação de um programa que gerencia uma lista de tarefas, permitindo adicionar, remover e visualizar itens.</p>
@@ -191,60 +230,41 @@ saudacao("Alice");  // Saída: Olá, Alice!</code></pre>
         <h4>Aula 2: Módulos e Pacotes</h4>
         <p><strong>Objetivo:</strong> Aprender a organizar código em módulos e pacotes.</p>
         <p><strong>Importação de módulos:</strong></p>
-        <pre><code>import { sqrt } from 'mathjs';
-console.log(sqrt(16));  // Saída: 4</code></pre>
-        <p><strong>Criação e importação de módulos personalizados:</strong></p>
-        <pre><code>// No arquivo meuModulo.js
-export function saudacao(nome) {
-    console.log(`Olá, ${nome}!`);
-}
-
-// No arquivo principal
-import { saudacao } from './meuModulo.js';
-
-saudacao("Alice");  // Saída: Olá, Alice!</code></pre>
-        <p><strong>Pacotes:</strong></p>
-        <pre><code>// Estrutura de diretórios
-// meuPacote/
-// ├── index.js
-// ├── modulo1.js
-// └── modulo2.js
-
-// No arquivo index.js
-export * from './modulo1';
-export * from './modulo2';</code></pre>
-        
-        <h4>Atividade:</h4>
-        <p>Criação de um módulo personalizado que contém funções para operações matemáticas básicas (soma, subtração, multiplicação, divisão) e um programa que utiliza essas funções.</p>
-        <pre><code>// No arquivo operacoes.js
+        <pre><code>// Arquivo: calculos.js
 export function soma(a, b) {
     return a + b;
 }
 
-export function subtracao(a, b) {
-    return a - b;
-}
+// Arquivo: main.js
+import { soma } from './calculos.js';
 
+let resultado = soma(3, 5);
+console.log(`Resultado da soma: ${resultado}`);  // Saída: Resultado da soma: 8</code></pre>
+        <p><strong>Criação e uso de módulos:</strong></p>
+        <pre><code>// Arquivo: utilitarios.js
 export function multiplicacao(a, b) {
     return a * b;
 }
 
 export function divisao(a, b) {
-    if (b !== 0) {
-        return a / b;
-    } else {
-        return "Divisão por zero não é permitida";
+    if (b === 0) {
+        throw new Error("O divisor não pode ser zero.");
     }
+    return a / b;
 }
 
-// No arquivo principal
-import { soma, subtracao, multiplicacao, divisao } from './operacoes.js';
+// Arquivo: main.js
+import { multiplicacao, divisao } from './utilitarios.js';
 
-console.log(soma(3, 5));         // Saída: 8
-console.log(subtracao(10, 2));   // Saída: 8
-console.log(multiplicacao(4, 6));// Saída: 24
-console.log(divisao(20, 4));     // Saída: 5.0</code></pre>
+try {
+    let resultadoMult = multiplicacao(4, 5);
+    console.log(`Resultado da multiplicação: ${resultadoMult}`);
 
+    let resultadoDiv = divisao(20, 4);
+    console.log(`Resultado da divisão: ${resultadoDiv}`);
+} catch (e) {
+    console.log(e.message);
+}</code></pre>
     </div>
 </body>
 </html>
