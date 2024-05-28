@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de SQL</title>
+    <link rel="icon" href="../assets/icon(SQL).png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2, h3, h4 {
+            color: #FF5733;
+        }
+        p, pre {
+            margin: 20px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #FF5733;
+            overflow-x: auto;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            background-color: #FF5733;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #db4a30;
+        }
+        .resolution {
+            margin-top: 20px;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <h1>Curso de SQL</h1>
+        
+        <!-- Módulo 1 -->
+        <h2>1. SQL</h2>
+        <h3>Módulo 1: Introdução ao SQL</h3>
+        <h4>Aula 1: Conceitos Básicos</h4>
+        <p><strong>Objetivo:</strong> Introdução aos conceitos básicos de SQL.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>O que é SQL:</strong></p>
+        <p>SQL (Structured Query Language) é uma linguagem de consulta estruturada usada para gerenciar bancos de dados relacionais. Com SQL, podemos criar bancos de dados, tabelas, executar consultas, inserir, atualizar e excluir dados.</p>
+        <p><strong>Comandos SQL:</strong></p>
+        <ul>
+            <li><code>SELECT</code>: Seleciona dados de um banco de dados.</li>
+            <li><code>INSERT INTO</code>: Insere novos registros em uma tabela.</li>
+            <li><code>UPDATE</code>: Atualiza registros existentes em uma tabela.</li>
+            <li><code>DELETE FROM</code>: Exclui registros de uma tabela.</li>
+            <li><code>CREATE DATABASE</code>: Cria um novo banco de dados.</li>
+            <li><code>CREATE TABLE</code>: Cria uma nova tabela em um banco de dados.</li>
+            <li><code>DROP DATABASE</code>: Exclui um banco de dados existente.</li>
+            <li><code>DROP TABLE</code>: Exclui uma tabela existente.</li>
+        </ul>
+        
+        <h4>Aula 2: Consultas Básicas</h4>
+        <p><strong>Objetivo:</strong> Aprender a executar consultas simples em SQL.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Consulta de dados:</strong></p>
+        <pre><code>SELECT * FROM tabela;</code></pre>
+        <p><strong>Filtragem de resultados:</strong></p>
+        <pre><code>SELECT * FROM tabela WHERE condicao;</code></pre>
+        <p><strong>Ordenação de resultados:</strong></p>
+        <pre><code>SELECT * FROM tabela ORDER BY coluna ASC|DESC;</code></pre>
+        <p><strong>Limitando resultados:</strong></p>
+        <pre><code>SELECT * FROM tabela LIMIT quantidade;</code></pre>
+        
+        <h4>Aula 3: Operações de CRUD</h4>
+        <p><strong>Objetivo:</strong> Aprender a realizar operações básicas de CRUD (Create, Read, Update, Delete) em SQL.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Inserção de dados:</strong></p>
+        <pre><code>INSERT INTO tabela (coluna1, coluna2) VALUES (valor1, valor2);</code></pre>
+        <p><strong>Atualização de dados:</strong></p>
+        <pre><code>UPDATE tabela SET coluna = novo_valor WHERE condicao;</code></pre>
+        <p><strong>Exclusão de dados:</strong></p>
+        <pre><code>DELETE FROM tabela WHERE condicao;</code></pre>
+        
+        <!-- Módulo 2 -->
+        <h2>2. Prática com Bancos de Dados</h2>
+        <h3>Módulo 2: Aplicação de Conceitos</h3>
+        <h4>Aula 1: Modelagem de Dados</h4>
+        <p><strong>Objetivo:</strong> Aprender a modelar bancos de dados utilizando diagramas entidade-relacionamento (DER).</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Entidades e atributos:</strong></p>
+        <p>Entidades representam objetos do mundo real, enquanto os atributos são características desses objetos.</p>
+        <p><strong>Relacionamentos:</strong></p>
+        <p>Relacionamentos definem como as entidades estão conectadas entre si.</p>
+        <p><strong>Diagramas DER:</strong></p>
+        <p>Os diagramas entidade-relacionamento são ferramentas visuais usadas para representar a estrutura do banco de dados.</p>
+        
+        <h4>Aula 2: Normalização de Dados</h4>
+        <p><strong>Objetivo:</strong> Compreender os conceitos de normalização de dados e aplicá-los na modelagem de bancos de dados.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Primeira Forma Normal (1FN):</strong></p>
+        <p>Elimina a redundância de dados, garantindo que cada coluna contenha apenas um valor.</p>
+        <p><strong>Segunda Forma Normal (2FN):</strong></p>
+        <p>Atende à 1FN e garante que cada coluna seja totalmente dependente da chave primária.</p>
+        <p><strong>Terceira Forma Normal (3FN):</strong></p>
+        <p>Atende à 2FN e elimina dependências transitivas, garantindo que cada coluna seja dependente apenas da chave primária.</p>
+
+        <h4>Aula 3: Consultas Avançadas</h4>
+        <p><strong>Objetivo:</strong> Aprender consultas SQL mais avançadas para extrair informações específicas de um banco de dados.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Junção de Tabelas (JOIN):</strong></p>
+        <pre><code>SELECT coluna1, coluna2 FROM tabela1 JOIN tabela2 ON tabela1.coluna = tabela2.coluna;</code></pre>
+        <p><strong>Subconsultas (Subqueries):</strong></p>
+        <pre><code>SELECT coluna FROM tabela WHERE coluna IN (SELECT coluna FROM outra_tabela);</code></pre>
+        <p><strong>Funções de Agregação:</strong></p>
+        <pre><code>SELECT COUNT(coluna) FROM tabela;</code></pre>
+
+        <!-- Módulo 3 -->
+        <h2>3. Práticas Avançadas</h2>
+        <h3>Módulo 3: Otimização de Desempenho</h3>
+        <h4>Aula 1: Índices e Otimização</h4>
+        <p><strong>Objetivo:</strong> Compreender a importância dos índices na otimização do desempenho de consultas.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Criação de Índices:</strong></p>
+        <pre><code>CREATE INDEX index_name ON tabela (coluna);</code></pre>
+        <p><strong>Tipo de Índices:</strong></p>
+        <p>Índices podem ser criados em uma ou várias colunas e podem ser únicos ou não.</p>
+
+        <h4>Aula 2: Transações e Controle de Concorrência</h4>
+        <p><strong>Objetivo:</strong> Entender o conceito de transações em bancos de dados e como garantir a consistência dos dados em ambientes concorrentes.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Transações:</strong></p>
+        <p>Uma transação é uma sequência de operações que formam uma unidade de trabalho indivisível.</p>
+        <p><strong>Propriedades ACID:</strong></p>
+        <ul>
+            <li><strong>Atomicidade:</strong> Todas as operações de uma transação são realizadas com sucesso ou nenhuma é realizada.</li>
+            <li><strong>Consistência:</strong> O banco de dados permanece em um estado consistente antes e depois da transação.</li>
+            <li><strong>Isolamento:</strong> As operações de uma transação são isoladas de outras transações concorrentes.</li>
+            <li><strong>Durabilidade:</strong> As alterações feitas por uma transação persistem, mesmo em caso de falha do sistema.</li>
+        </ul>
+
+        <h4>Aula 3: Segurança e Backup</h4>
+        <p><strong>Objetivo:</strong> Aprender a proteger os dados do banco de dados e realizar backups para garantir a sua integridade.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Controle de Acesso:</strong></p>
+        <p>Restringir o acesso ao banco de dados apenas a usuários autorizados.</p>
+        <p><strong>Backup e Recuperação:</strong></p>
+        <p>Realizar backups regulares dos dados para evitar perdas em caso de falha do sistema.</p>
+
+        <!-- Exercícios -->
+        <h2>Exercícios</h2>
+        <h3>Desafio Final</h3>
+        <p>Crie um banco de dados para uma aplicação de gerenciamento de biblioteca. O banco de dados deve conter tabelas para livros, autores, editoras e usuários.</p>
+        <p>Implemente consultas SQL para listar todos os livros de um determinado autor, encontrar livros por título e verificar quantos livros cada editora possui.</p>
+    </div>
+</body>
+</html>
