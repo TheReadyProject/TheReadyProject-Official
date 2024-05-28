@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de JavaScript</title>
+    <link rel="icon" href="../assets/icon(JS).png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { ... }
+        .container { ... }
+        h1, h2, h3, h4 { ... }
+        p, pre { ... }
+        code { ... }
+        pre { ... }
+        .btn { ... }
+        .btn:hover { ... }
+        .resolution { ... }
+        .fade-in { ... }
+        @keyframes fadeIn { ... }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <h1>Curso de Programação em JavaScript</h1>
+        
+        <!-- Módulo 1 -->
+        <h2>1. JavaScript</h2>
+        <h3>Módulo 1: Fundamentos de JavaScript</h3>
+        <h4>Aula 1: Introdução e Configuração do Ambiente</h4>
+        <p><strong>Objetivo:</strong> Introduzir o JavaScript e configurar o ambiente de desenvolvimento.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>O que é JavaScript e suas aplicações:</strong></p>
+        <p>JavaScript é uma linguagem de programação de alto nível, amplamente utilizada para desenvolvimento web. Ela permite a criação de páginas web interativas, manipulação do DOM, e comunicação assíncrona com servidores.</p>
+        <p><strong>Instalando Node.js para execução de JavaScript no servidor:</strong></p>
+        <ol>
+            <li>Acesse o site oficial do Node.js: <a href="https://nodejs.org/" target="_blank">nodejs.org</a>.</li>
+            <li>Baixe e instale o instalador apropriado para o seu sistema operacional.</li>
+        </ol>
+        <p><strong>Configuração do ambiente de desenvolvimento (IDEs recomendadas: VS Code, WebStorm):</strong></p>
+        <p><strong>VS Code:</strong></p>
+        <ol>
+            <li>Baixe e instale o Visual Studio Code: <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a>.</li>
+            <li>Instale a extensão JavaScript (ES6) code snippets.</li>
+        </ol>
+        <p><strong>Primeiro programa: "Hello, World!":</strong></p>
+        <pre><code>console.log("Hello, World!");</code></pre>
+        
+        <h4>Aula 2: Variáveis e Tipos de Dados</h4>
+        <p><strong>Objetivo:</strong> Compreender variáveis e tipos de dados em JavaScript.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Variáveis: definição e convenções de nomenclatura:</strong></p>
+        <pre><code>let nome = "Alice";
+const idade = 30;</code></pre>
+        <p>Convenções de nomenclatura:</p>
+        <ul>
+            <li>Use nomes descritivos.</li>
+            <li>Utilize camelCase para nomes de variáveis e funções.</li>
+        </ul>
+        <p><strong>Tipos de dados básicos: inteiros, floats, strings, booleanos:</strong></p>
+        <pre><code>let num = 10;  // Inteiro
+let pi = 3.14;  // Float
+let saudacao = "Olá, Mundo!";  // String
+let isStudent = true;  // Booleano</code></pre>
+        <p><strong>Operações básicas com variáveis:</strong></p>
+        <pre><code>let soma = 10 + 5;  // Aritmética
+let maior = 10 > 5;  // Comparação</code></pre>
+        <p><strong>Função `typeof` e conversão de tipos:</strong></p>
+        <pre><code>console.log(typeof nome);  // Saída: string
+let numStr = "123";
+let numInt = parseInt(numStr);</code></pre>
+        
+        <h4>Aula 3: Estruturas de Controle (if, else, else if)</h4>
+        <p><strong>Objetivo:</strong> Aprender a utilizar estruturas de controle de fluxo.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Estruturas condicionais: `if`, `else`, `else if`:</strong></p>
+        <pre><code>if (idade >= 18) {
+    console.log("Você é maior de idade.");
+} else if (idade > 12) {
+    console.log("Você é adolescente.");
+} else {
+    console.log("Você é criança.");
+}</code></pre>
+        <p><strong>Exemplos práticos:</strong></p>
+        <pre><code>let numero = 7;
+if (numero % 2 === 0) {
+    console.log("O número é par.");
+} else {
+    console.log("O número é ímpar.");
+}</code></pre>
+        <p><strong>Operadores de comparação e lógicos:</strong></p>
+        <pre><code>let idade = 20;
+if (idade >= 18 && idade < 65) {
+    console.log("Você é um adulto.");
+}</code></pre>
+        
+        <h4>Atividade:</h4>
+        <p>Criação de um script simples que solicita ao usuário um número e verifica se ele é positivo, negativo ou zero.</p>
+        <pre><code>let numero = parseFloat(prompt("Digite um número: "));
+if (numero > 0) {
+    console.log("O número é positivo.");
+} else if (numero < 0) {
+    console.log("O número é negativo.");
+} else {
+    console.log("O número é zero.");
+}</code></pre>
+
+        <!-- Módulo 2 -->
+        <h3>Módulo 2: Estruturas de Dados</h3>
+        <h4>Aula 1: Arrays e Objetos</h4>
+        <p><strong>Objetivo:</strong> Compreender e utilizar arrays e objetos.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Arrays:</strong></p>
+        <pre><code>let frutas = ['maçã', 'banana', 'laranja'];
+console.log(frutas[0]);  // Saída: maçã</code></pre>
+        <p><strong>Operações com arrays:</strong></p>
+        <pre><code>frutas.push('morango');  // Adiciona um elemento ao final do array
+frutas.splice(frutas.indexOf('banana'), 1);  // Remove um elemento do array</code></pre>
+        <p><strong>Objetos:</strong></p>
+        <pre><code>let aluno = {
+    nome: 'João',
+    idade: 25,
+    curso: 'Engenharia'
+};
+console.log(aluno.idade);  // Saída: 25</code></pre>
+        <p><strong>Operações com objetos:</strong></p>
+        <pre><code>aluno.idade = 26;  // Atualiza o valor de uma propriedade
+delete aluno.curso;  // Remove uma propriedade</code></pre>
+        
+        <h4>Atividade:</h4>
+        <p>Criação de um programa que gerencia uma lista de tarefas, permitindo adicionar, remover e visualizar itens.</p>
+        <pre><code>let tarefas = [];
+
+while (true) {
+    console.log("\nLista de Tarefas:");
+    for (let tarefa of tarefas) {
+        console.log(`- ${tarefa}`);
+    }
+
+    console.log("\nOpções:");
+    console.log("1. Adicionar tarefa");
+    console.log("2. Remover tarefa");
+    console.log("3. Sair");
+
+    let opcao = prompt("Escolha uma opção: ");
+
+    if (opcao === "1") {
+        let tarefa = prompt("Digite a tarefa: ");
+        tarefas.push(tarefa);
+    } else if (opcao === "2") {
+        let tarefa = prompt("Digite a tarefa a remover: ");
+        let index = tarefas.indexOf(tarefa);
+        if (index !== -1) {
+            tarefas.splice(index, 1);
+        } else {
+            console.log("Tarefa não encontrada.");
+        }
+    } else if (opcao === "3") {
+        break;
+    } else {
+        console.log("Opção inválida.");
+    }
+}</code></pre>
+
+        <!-- Módulo 3 -->
+        <h3>Módulo 3: Funções e Módulos</h3>
+        <h4>Aula 1: Definição de Funções</h4>
+        <p><strong>Objetivo:</strong> Aprender a criar e utilizar funções em JavaScript.</p>
+        <p><strong>Conteúdo:</strong></p>
+        <p><strong>Definição e chamada de funções:</strong></p>
+        <pre><code>function saudacao(nome) {
+    console.log(`Olá, ${nome}!`);
+}
+
+saudacao("Alice");  // Saída: Olá, Alice!</code></pre>
+        <p><strong>Argumentos e parâmetros:</strong></p>
+        <pre><code>function soma(a, b) {
+    return a + b;
+}
+
+let resultado = soma(3, 5);
+console.log(resultado);  // Saída: 8</code></pre>
+        <p><strong>Parâmetros padrão e argumentos nomeados:</strong></p>
+        <pre><code>function saudacao(nome = "Visitante") {
+    console.log(`Olá, ${nome}!`);
+}
+
+saudacao();  // Saída: Olá, Visitante!
+saudacao("Alice");  // Saída: Olá, Alice!</code></pre>
+
+        <h4>Aula 2: Módulos e Pacotes</h4>
+        <p><strong>Objetivo:</strong> Aprender a organizar código em módulos e pacotes.</p>
+        <p><strong>Importação de módulos:</strong></p>
+        <pre><code>import { sqrt } from 'mathjs';
+console.log(sqrt(16));  // Saída: 4</code></pre>
+        <p><strong>Criação e importação de módulos personalizados:</strong></p>
+        <pre><code>// No arquivo meuModulo.js
+export function saudacao(nome) {
+    console.log(`Olá, ${nome}!`);
+}
+
+// No arquivo principal
+import { saudacao } from './meuModulo.js';
+
+saudacao("Alice");  // Saída: Olá, Alice!</code></pre>
+        <p><strong>Pacotes:</strong></p>
+        <pre><code>// Estrutura de diretórios
+// meuPacote/
+// ├── index.js
+// ├── modulo1.js
+// └── modulo2.js
+
+// No arquivo index.js
+export * from './modulo1';
+export * from './modulo2';</code></pre>
+        
+        <h4>Atividade:</h4>
+        <p>Criação de um módulo personalizado que contém funções para operações matemáticas básicas (soma, subtração, multiplicação, divisão) e um programa que utiliza essas funções.</p>
+        <pre><code>// No arquivo operacoes.js
+export function soma(a, b) {
+    return a + b;
+}
+
+export function subtracao(a, b) {
+    return a - b;
+}
+
+export function multiplicacao(a, b) {
+    return a * b;
+}
+
+export function divisao(a, b) {
+    if (b !== 0) {
+        return a / b;
+    } else {
+        return "Divisão por zero não é permitida";
+    }
+}
+
+// No arquivo principal
+import { soma, subtracao, multiplicacao, divisao } from './operacoes.js';
+
+console.log(soma(3, 5));         // Saída: 8
+console.log(subtracao(10, 2));   // Saída: 8
+console.log(multiplicacao(4, 6));// Saída: 24
+console.log(divisao(20, 4));     // Saída: 5.0</code></pre>
+
+    </div>
+</body>
+</html>
