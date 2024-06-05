@@ -84,26 +84,6 @@
             }
         }
 
-.support-button {
-    margin-top: 20px; /* Espaçamento entre o formulário de login e o botão de apoio */
-    text-align: center; /* Alinhar o botão ao centro */
-}
-
-.btn-support {
-    background-color: #F3A343; /* Cor de fundo */
-    color: #fff; /* Cor do texto */
-    padding: 10px 20px; /* Espaçamento interno */
-    border-radius: 5px; /* Arredondamento da borda */
-    text-decoration: none; /* Remover sublinhado do link */
-    transition: background-color 0.3s; /* Transição suave */
-}
-
-.btn-support:hover {
-    background-color: #E28C3C; /* Cor de fundo no hover */
-}
- 
-
-
         .form-group {
             display: flex;
             flex-direction: column;
@@ -271,26 +251,21 @@
     </style>
 </head>
 <body>
-<!-- Aqui começa o corpo do documento HTML -->
-<div class="header">
-    <div class="settings-toggle">
-        <img src="assets/settingsIcon2.png" alt="Settings">
+    <!-- Aqui começa o corpo do documento HTML -->
+    <div class="header">
+        <div class="settings-toggle">
+            <img src="assets/settingsIcon2.png" alt="Settings">
+        </div>
+        <div class="settings">
+            <label for="brightness">Brilho</label>
+            <input type="range" id="brightness" name="brightness" min="0.5" max="2" step="0.1" value="1">
+        </div>
+        <div class="github-link">
+            <a href="https://github.com/TheReadyProject/TheReadyProject-Official" target="_blank">
+                <img src="assets/github.png" alt="GitHub">
+            </a>
+        </div>
     </div>
-    <div class="settings">
-        <label for="brightness">Brilho</label>
-        <input type="range" id="brightness" name="brightness" min="0.5" max="2" step="0.1" value="1">
-    </div>
-    <div class="github-link">
-        <a href="https://github.com/TheReadyProject/TheReadyProject-Official" target="_blank">
-            <img src="assets/github.png" alt="GitHub">
-        </a>
-    </div>
-    <!-- botão de apoio aqui -->
-    <div class="support-button">
-        <a href="https://www.patreon.com/thereadyprojectofficial/membership" target="_blank" class="btn-support">Apoie este projeto! Pls?</a>
-    </div>
-</div>
-
 
     <div class="login-page">
         <div class="login-form show">
